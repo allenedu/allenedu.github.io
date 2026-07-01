@@ -96,6 +96,9 @@
       {% endif %}      
 
       <!-- Font Awesome icons / Social media -->
+      {% if author.wechat %}
+       <li><a href="#wechat-modal" class="wechat-link"><i class="fab fa-fw fa-weixin icon-pad-right" aria-hidden="true"></i>WeChat</a></li>
+      {% endif %}
       {% if author.artstation %}
         <li><a href="https://www.artstation.com/{{ author.artstation }}"><i class="fab fa-fw fa-artstation icon-pad-right" aria-hidden="true"></i>Artstation</a></li>
       {% endif %}        
