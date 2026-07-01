@@ -12,7 +12,7 @@ main:
     url: /teaching/    
 
     
-  - title: "历年真题<br>Past Year Papers "
+  - title: "历年真题<br>Past Year Papers"
     url: /publications/
 
   - title: "Talks"
@@ -20,7 +20,7 @@ main:
 
 
     
-  - title: "Portfolio"
+  - title: "学习干货<br>Useful Tips"
     url: /portfolio/
         
   - title: "Blog Posts"
@@ -29,8 +29,8 @@ main:
   - title: "CV"
     url: /cv/
     
-  - title: "CV"
+  - title: "关于我<br>About Me"
     url: /cv-json/
     
-  - title: "Guide"
+  - title: "趣味数学<br>Fun Math"
     url: /markdown/
