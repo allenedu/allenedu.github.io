@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Math Made Simple, Learning Made Fun"
+title: "Making Math Simple, Making Learning Fun."
 author_profile: true
 redirect_from: 
   - /about/
