@@ -28,7 +28,7 @@ author:
   pronouns         : # example: "she/her"  
   bio              : "Short biography for the left-hand sidebar"
   location         : "China"
-  employer         : "Bachelor’s, Master’s, and Ph.D. from "985" universities (Direct admission to Master's program, followed by combined Master's-Doctoral program).本硕博士均毕业于 985 高校（硕士阶段为保研，后续硕转博）。"
+  employer         : "Bachelor's, Master's, and Ph.D. from 985 universities (Direct admission to Master's program, followed by combined Master's-Doctoral program).本硕博士均毕业于 985 高校（硕士阶段为保研，后续硕转博）。"
   uri              : # URL
   email            : "3384941619@qq.com" 
 
@@ -51,7 +51,7 @@ author:
   bitbucket        : # Username - Update with your username on the site
   codepen          : # Username
   dribbble         : # Username
-  github           : "academicpages"
+  github           : "allenedu"
   kaggle           : # Username  
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
