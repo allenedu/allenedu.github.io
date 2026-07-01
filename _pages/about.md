@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-![学习交流插图](/images/discuss.png)
+![学习交流插图](/images/discussys.png)
 
 平台定位
 ======
