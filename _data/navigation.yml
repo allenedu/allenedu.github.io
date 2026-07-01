@@ -15,21 +15,20 @@ main:
   - title: "历年真题<br>Past Year Papers"
     url: /publications/
 
-  - title: "Talks"
+  - title: "词汇背诵<br>Vocabulary Memorization"
     url: /talks/    
-
 
     
   - title: "学习干货<br>Useful Tips"
     url: /portfolio/
         
-  - title: "Blog Posts"
+  - title: "Desmos使用<br>Desmos Guide"
     url: /year-archive/
     
   - title: "CV"
     url: /cv/
     
-  - title: "关于我<br>About Me"
+  - title: "讲师介绍<br>Instructor"
     url: /cv-json/
     
   - title: "趣味数学<br>Fun Math"
