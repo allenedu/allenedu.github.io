@@ -7,20 +7,28 @@ redirect_from:
   - /about.html
 ---
 
+
+平台定位
+======
+专注打造轻松、开放、纯粹的公益学习空间，坚持无门槛、公益性分享，为所有国际课程学习者提供免费、优质、实用的学习资源，助力学生轻松攻克数学难题。
+
+内容覆盖
+======
+全面适配主流国际课程体系，涵盖 AP、IB、A‑Level、AMC、SAT 等赛道，持续更新干货内容，包含核心知识点精讲、经典解题思路、系统备考规划、专属实用学习工具。
+
+初心愿景
+======
+以专业、真诚的教学初心，降低国际数学的学习门槛，帮助学生吃透知识、理清逻辑、规避误区。在持续进步中建立学科自信，让每一位学习者都能享受思考的乐趣，收获学习的成就感。
+
 教学理念
 ======
 摒弃晦涩难懂的刻板教学模式，用清晰通俗、贴合学生思维的方式拆解国际数学知识。将复杂公式、抽象逻辑、繁琐考点逐一简化拆解，褪去数学的枯燥与压力，让高效学习、快乐思考成为常态。
 
 
 
-平台定位
-======
-1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
-1. Fork [this template](https://github.com/academicpages/academicpages.github.io) by clicking the "Use this template" button in the top right. 
-1. Go to the repository's settings (rightmost item in the tabs that start with "Code", should be below "Unwatch"). Rename the repository "[your GitHub username].github.io", which will also be your website's URL.
-1. Set site-wide configuration and create content & metadata (see below -- also see [this set of diffs](https://archive.is/3TPas) showing what files were changed to set up [an example site](https://getorg-testacct.github.io) for a user with the username "getorg-testacct")
-1. Upload any files (like PDFs, .zip files, etc.) to the files/ directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.  
-1. Check status by going to the repository settings, in the "GitHub pages" section
+
+
+
 
 Site-wide configuration
 ------
