@@ -30,6 +30,21 @@ Help students fully master the knowledge and skills of AP Calculus AB/BC, develo
 
 
 ### Course Outline / 课程大纲
+**1. Functions / 函数基础**
+
+1.1 Five Basic Elementary Functions / 五种基本初等函数
+
+1.2 Inverse Functions / 反函数
+
+1.3 Composite Functions / 复合函数
+
+1.4 Parametric Functions (BC only) / 参数函数 （BC专属）
+
+1.5 Polar Functions (BC only) / 极坐标函数 （BC专属）
+
+1.6 Vector Functions (BC only) / 向量函数 （BC专属）
+
+1.7 Function Transformations / 函数变换
 
 **2. Limits & Continuity / 极限与连续性**
 
