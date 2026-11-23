@@ -1,36 +1,20 @@
 ---
-layout: archive
-title: "Publications"
+layout: learning
+title: "历年真题与官方资源"
 permalink: /publications/
-author_profile: true
+author_profile: false
 ---
+<main class="allen-container allen-inner-main" id="main">
+  <div class="allen-page-heading"><p class="allen-eyebrow">PRACTICE WITH PURPOSE</p><h1>每一次练习，都更有方向。</h1><p>从官方资源开始，把试题、评分标准与复盘结合起来。</p></div>
+  <div class="allen-page-grid">
+    <a class="allen-feature-card allen-mint" href="https://apcentral.collegeboard.org/courses/ap-calculus-bc/exam/past-exam-questions" target="_blank" rel="noopener noreferrer"><span class="allen-card-eyebrow">COLLEGE BOARD · AP</span><h2>AP Calculus BC</h2><p>官方公开的自由作答题（FRQ）、评分标准与答题示例。选择对应年份，配合评分标准检查自己的解题过程。</p><span class="allen-card-action">打开 AP 官方资源 <span class="allen-external-note">新窗口</span></span></a>
+    <a class="allen-feature-card allen-blue" href="https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-international-as-and-a-level-mathematics-9709/past-papers/" target="_blank" rel="noopener noreferrer"><span class="allen-card-eyebrow">CAMBRIDGE · A-LEVEL</span><h2>Mathematics 9709</h2><p>剑桥国际 AS &amp; A Level 数学公开试题、样卷和考官报告。练习前核对科目代码、考试年份与考纲。</p><span class="allen-card-action">打开 Cambridge 官方资源 <span class="allen-external-note">新窗口</span></span></a>
+    <a class="allen-feature-card allen-lilac" href="https://qualifications.pearson.com/en/qualifications/edexcel-international-advanced-levels/mathematics-2018.coursematerials.html" target="_blank" rel="noopener noreferrer"><span class="allen-card-eyebrow">PEARSON EDEXCEL · IAL</span><h2>International A Level Mathematics</h2><p>在 Course materials 中按单元、资源类型和考试系列筛选数学资料。部分较新的材料可能需要账号权限。</p><span class="allen-card-action">打开 Pearson 官方资源 <span class="allen-external-note">新窗口</span></span></a>
+    <a class="allen-feature-card allen-peach" href="https://www.ibo.org/programmes/diploma-programme/assessment-and-exams/sample-exam-papers/" target="_blank" rel="noopener noreferrer"><span class="allen-card-eyebrow">INTERNATIONAL BACCALAUREATE · IB</span><h2>IB Mathematics 样卷</h2><p>官方公开的 Mathematics: analysis and approaches 与 applications and interpretation 样卷入口。</p><span class="allen-card-action">打开 IB 官方资源 <span class="allen-external-note">新窗口</span></span></a>
+  </div>
+  <aside class="allen-callout"><h2>练完一套题，别急着做下一套。</h2><p>先独立计时作答，再依据评分标准逐步核对。把失分归到概念、计算、题意理解或作答规范，并在几天后重新独立完成错题。本站提供官方入口，具体资料与访问范围以考试机构页面为准。</p></aside>
+</main>
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
-
-{% include base_path %}
-
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
-  {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% endif %}
 
 
 

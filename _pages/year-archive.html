@@ -1,25 +1,14 @@
 ---
-layout: archive
+layout: learning
 permalink: /year-archive/
-title: "Desmos"
-author_profile: true
+title: "Desmos 与数学探索"
+author_profile: false
 redirect_from:
   - /wordpress/blog-posts/
 ---
-<div style="margin: 20px 0;">
-  <a href="https://www.desmos.com/calculator?lang=zh-CN" 
-     target="_blank" 
-     style="display: inline-block; padding: 12px 24px; background-color: #007bff; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight: bold; transition: background-color 0.3s;">
-     点击这里使用Desmos
-  </a>
-</div>
-{% include base_path %}
-{% capture written_year %}'None'{% endcapture %}
-{% for post in site.posts %}
-  {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
-  {% if year != written_year %}
-    <h2 id="{{ year | slugify }}" class="archive__subtitle">{{ year }}</h2>
-    {% capture written_year %}{{ year }}{% endcapture %}
-  {% endif %}
-  {% include archive-single.html %}
-{% endfor %}
+<main class="allen-container allen-inner-main" id="main">
+  <div class="allen-page-heading"><p class="allen-eyebrow">SEE THE MATH, PLAY WITH IDEAS</p><h1>让抽象的公式，变得看得见。</h1><p>先用下面的小实验感受参数变化，再去 Desmos 探索更多可能。</p></div>
+  {% include allen-lab.html %}
+  <section class="allen-callout allen-desmos-guide"><div><p class="allen-eyebrow">KEEP EXPLORING</p><h2>在 Desmos 里，继续你的探索。</h2><p>输入 <code>y=a(x-h)^2+k</code>，为 a、h、k 添加滑块；再试试 <code>y=sin(x)</code> 与 <code>y=sin(2x)</code>，观察周期的变化。</p></div><a class="allen-button" href="https://www.desmos.com/calculator?lang=zh-CN" target="_blank" rel="noopener noreferrer">打开 Desmos <span class="allen-external-note">新窗口</span></a></section>
+</main>
+

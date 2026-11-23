@@ -1,0 +1,9 @@
+<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+{% case include.name %}
+{% when 'book' %}<path d="M14 7c-4-3-8-2-11-1v16c4-2 7-2 11 0 4-2 7-2 11 0V6c-3-1-7-2-11 1Zm0 0v15M7 10h3m-3 4h3m8-4h3m-3 4h3"/>
+{% when 'paper' %}<path d="M7 3h10l5 5v17H7ZM17 3v6h5M11 13h7m-7 4h7m-7 4h4M3 7v18"/>
+{% when 'letters' %}<path d="m3 20 6-14 6 14M5 16h8m6-6h7m-3-4v4m-5 4c2 4 5 6 8 7m0-11c-1 6-4 9-9 12"/>
+{% when 'spark' %}<path d="m14 3 3.5 7.5L25 14l-7.5 3.5L14 25l-3.5-7.5L3 14l7.5-3.5ZM23 3v4m-2-2h4"/>
+{% else %}<path d="M4 23h20M7 19V9m7 10V5m7 14v-7"/>
+{% endcase %}
+</svg>

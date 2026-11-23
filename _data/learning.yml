@@ -1,0 +1,29 @@
+resources:
+  - title: "课程大纲"
+    en: "COURSE OUTLINES"
+    description: "从知识框架出发，找到每个阶段的学习重点。"
+    action: "梳理知识体系"
+    url: /teaching/
+    icon: book
+    color: mint
+  - title: "历年真题"
+    en: "PAST PAPERS"
+    description: "连接官方试题与评分标准，让练习更有方向。"
+    action: "寻找真题资源"
+    url: /publications/
+    icon: paper
+    color: blue
+  - title: "数学词汇"
+    en: "MATH VOCABULARY"
+    description: "读懂题目里的每一个关键词，跨过语言这道坎。"
+    action: "积累数学表达"
+    url: /talks/
+    icon: letters
+    color: lilac
+  - title: "学习干货"
+    en: "STUDY NOTES"
+    description: "把解题思路、复习方法和考场习惯慢慢练扎实。"
+    action: "发现实用方法"
+    url: /portfolio/
+    icon: spark
+    color: peach

@@ -7,12 +7,12 @@
 # server process.
 
 # Basic Site Settings
-locale                   : "en-US"
+locale                   : "zh-CN"
 site_theme               : "default" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
-title                    : "Allen"
+title                    : "Allen智学"
 title_separator          : "-"
 name                     : &name "Allen"
-description              : &description "personal description (个人简介)"   # Update this with a general description of your site, this is the default if not overridden by a page
+description              : &description "Allen智学：开放的国际数学学习空间，分享课程大纲、数学词汇、官方真题入口与实用学习工具。"   # Update this with a general description of your site, this is the default if not overridden by a page
 url                      : https://allenedu.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
                                                            # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -26,12 +26,12 @@ author:
   avatar           : "profile720bys.png"
   name             : "Allen"
   pronouns         : # example: "she/her"  
-  bio              : "985高校数学本硕博，4300+小时辅导经验，致力于让国际数学学习更简单"
+  bio              : "专注国际课程数学教学，让复杂的概念变清晰，让每一次进步有迹可循。"
   location         : "中国·上海"
   employer         : "国际数学博士讲师"
   uri              : # URL
   email            : "3384941619@qq.com" 
-  wechat           : "你的微信号"
+  wechat           : true
 
   # Academic websites
   academia         : # URL
@@ -39,10 +39,10 @@ author:
   googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
   inspire-hep      : # URL
   impactstory      : # URL
-  orcid            : "https://orcid.org/yourorcidurl"
+  orcid            :
   semantic         : # URL
   ssrn             : # URL
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  pubmed           :
   researchgate     : # URL
   scopus           : # URL
   zotero           : # URL
@@ -59,7 +59,7 @@ author:
   # Social media
   # wechat           : "mathaidr" # 填入你的微信号，仅作为逻辑判断开关
   artstation       : # Username
-  bluesky          : "bsky.app" # Replace this with you Bluesky username
+  bluesky          : # Replace this with you Bluesky username
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username
@@ -361,3 +361,4 @@ compress_html:
   clippings: all
   ignore:
     envs: development
+

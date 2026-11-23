@@ -1,12 +1,15 @@
 ---
-layout: archive
-title: "课程大纲 Course Outline"
+layout: learning
+title: "课程大纲"
 permalink: /teaching/
-author_profile: true
+author_profile: false
 ---
+<main class="allen-container allen-inner-main" id="main">
+  <div class="allen-page-heading"><p class="allen-eyebrow">THE BIG PICTURE, ONE STEP AT A TIME</p><h1>先看清地图，再出发。</h1><p>了解课程内容与知识之间的联系，给每一步学习一个清晰的位置。</p></div>
+  <div class="allen-page-grid">
+    <a class="allen-feature-card allen-mint" href="{{ '/teaching/ap-precalculus' | relative_url }}"><span class="allen-feature-symbol" aria-hidden="true">f(x)</span><span class="allen-card-eyebrow">AP MATHEMATICS</span><h2>AP Precalculus</h2><p>函数基础、多项式与有理函数、指数与对数、三角函数、极坐标与数学建模。</p><span class="allen-card-action">查看预微积分课程大纲</span></a>
+    <a class="allen-feature-card allen-blue" href="{{ '/teaching/ap-calculus' | relative_url }}"><span class="allen-feature-symbol" aria-hidden="true">∫</span><span class="allen-card-eyebrow">AP MATHEMATICS</span><h2>AP Calculus AB / BC</h2><p>极限与连续、导数与应用、积分与应用、微分方程，以及 BC 的级数与参数专题。</p><span class="allen-card-action">查看微积分课程大纲</span></a>
+  </div>
+  <aside class="allen-callout"><h2>怎样使用课程大纲？</h2><p>开始新章节前，先浏览知识框架；复习时，把每个主题标记为「已掌握」「需巩固」「待学习」。遇到不熟悉的英文术语，可以配合数学词汇页一起学习。</p><a class="allen-text-link" href="{{ '/talks/' | relative_url }}">打开数学词汇</a></aside>
+</main>
 
-{% include base_path %}
-
-{% for post in site.teaching reversed %}
-  {% include archive-single.html %}
-{% endfor %}

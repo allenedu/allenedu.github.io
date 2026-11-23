@@ -1,0 +1,423 @@
+/* Allen智学: shared brand, accessible navigation, and learning pages. */
+:root {
+  --allen-page: #fff;
+  --allen-surface: #fff;
+  --allen-soft: #f5f8f7;
+  --allen-ink: #172e2b;
+  --allen-muted: #60716d;
+  --allen-primary: #127568;
+  --allen-primary-hover: #0c5d53;
+  --allen-line: #e1e9e5;
+  --allen-hero: #f0f8f5;
+  --allen-shadow: 0 18px 48px rgb(27 65 49 / 8%);
+  --global-bg-color: var(--allen-page);
+  --global-text-color: var(--allen-ink);
+  --global-border-color: var(--allen-line);
+  --global-link-color: var(--allen-primary);
+  color-scheme: light;
+  font-size: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 110px;
+}
+html[data-theme="dark"] {
+  --allen-page: #101f20;
+  --allen-surface: #16292a;
+  --allen-soft: #142526;
+  --allen-ink: #edf7f3;
+  --allen-muted: #b1c4be;
+  --allen-primary: #83d9bf;
+  --allen-primary-hover: #a7edd8;
+  --allen-line: #2c4140;
+  --allen-hero: #142e2b;
+  --allen-shadow: 0 18px 48px rgb(0 0 0 / 16%);
+  color-scheme: dark;
+}
+body.allen-site {
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 100vh;
+  color: var(--allen-ink);
+  background: var(--allen-page);
+  font: 400 1rem/1.75 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.allen-site *, .allen-site *::before, .allen-site *::after { box-sizing: border-box; }
+.allen-site [hidden] { display: none !important; }
+.allen-site a { color: var(--allen-primary); }
+.allen-modern a { text-decoration: none; }
+.allen-modern img { display: block; max-width: 100%; height: auto; }
+.allen-modern h1, .allen-modern h2, .allen-modern h3, .allen-modern p { margin: 0; padding: 0; border: 0; }
+.allen-modern h1, .allen-modern h2, .allen-modern h3 { color: var(--allen-ink); line-height: 1.4; font-weight: 700; }
+.allen-modern h2 { font-size: clamp(1.6rem, 2.4vw, 2.1rem); letter-spacing: -.04em; }
+.allen-site button, .allen-site input { font: inherit; }
+.allen-site a:focus-visible, .allen-site button:focus-visible, .allen-site input:focus-visible {
+  outline: 3px solid var(--allen-primary); outline-offset: 5px;
+}
+.allen-container { width: min(1180px, calc(100% - 80px)); margin-inline: auto; }
+.allen-skip { position: fixed; top: -100px; left: 16px; z-index: 1000; padding: 12px 20px; background: var(--allen-surface); border: 2px solid var(--allen-primary); border-radius: 8px; }
+.allen-skip:focus { top: 12px; }
+.allen-header {
+  position: sticky; top: 0; z-index: 200;
+  background: var(--allen-page); border-bottom: 1px solid var(--allen-line);
+}
+.allen-header-inner { min-height: 88px; max-width: 1280px; margin: auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; gap: 25px; }
+.allen-brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; text-decoration: none; }
+.allen-logo { color: #127568; width: 42px; height: 42px; }
+.allen-brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+.allen-brand-text strong { font-size: 1.35rem; color: var(--allen-ink); letter-spacing: -.03em; }
+.allen-brand-text strong span { padding-left: 5px; font-size: 1.15rem; }
+.allen-brand-text small { margin-top: 7px; font-size: .625rem; font-weight: 600; color: var(--allen-muted); letter-spacing: .11em; }
+.allen-nav { display: flex; align-items: center; gap: 27px; margin-left: auto; }
+.allen-nav a { white-space: nowrap; text-decoration: none; font-size: .9rem; color: var(--allen-muted); padding: 31px 0; line-height: 25px; position: relative; transition: color .18s; }
+.allen-nav a:hover, .allen-nav a[aria-current="page"] { color: var(--allen-primary); }
+.allen-nav a[aria-current="page"]::after { content: ""; position: absolute; bottom: 17px; left: 20%; right: 20%; height: 2px; background: var(--allen-primary); border-radius: 3px; }
+.allen-header-actions { display: flex; align-items: center; gap: 12px; }
+.allen-menu-toggle { display: none !important; }
+.allen-icon-button { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; color: var(--allen-muted); background: transparent; border: 1px solid transparent; border-radius: 50%; padding: 9px; cursor: pointer; }
+.allen-icon-button:hover { background: var(--allen-soft); color: var(--allen-primary); }
+.allen-icon-button svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.allen-icon-button .allen-sun, [data-theme="dark"] .allen-moon { display: none; }
+[data-theme="dark"] .allen-icon-button .allen-sun { display: block; }
+.allen-button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 51px; padding: 12px 25px;
+  background: #127568; color: #fff !important; border: 1px solid #127568; border-radius: 9px;
+  text-decoration: none !important; font-size: .95rem; font-weight: 600; line-height: 1.5; transition: background .18s, transform .18s, box-shadow .18s;
+}
+.allen-button:hover { background: #0c5d53; border-color: #0c5d53; transform: translateY(-2px); box-shadow: 0 6px 18px rgb(18 117 104 / 15%); }
+.allen-button-outline { color: var(--allen-ink) !important; background: transparent; border-color: #b9ccc5; }
+.allen-button-outline:hover { background: var(--allen-surface); border-color: var(--allen-primary); }
+.allen-button-small { min-height: 41px; padding: 9px 18px; font-size: .875rem; }
+.allen-button-row { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; }
+.allen-hero { overflow: hidden; background: radial-gradient(ellipse at 80% 15%, #e5f2f7 0, transparent 52%), linear-gradient(125deg, var(--allen-page), var(--allen-hero)); }
+[data-theme="dark"] .allen-hero { background: radial-gradient(ellipse at 80% 15%, #193739 0, transparent 52%), linear-gradient(125deg, var(--allen-page), var(--allen-hero)); }
+.allen-hero-grid { display: grid; grid-template-columns: 1fr 1.05fr; align-items: center; gap: 58px; padding-block: 72px 80px; }
+.allen-pill { display: inline-flex; align-items: center; gap: 9px; padding: 6px 13px; border: 1px solid #cee1d6; border-radius: 40px; color: var(--allen-primary); background: var(--allen-surface); font-size: .81rem; }
+.allen-pill > span { font-size: 1rem; }
+.allen-modern .allen-hero h1 { margin: 23px 0 15px; font-size: clamp(2.15rem, 3.65vw, 3.25rem); line-height: 1.45; letter-spacing: -.06em; }
+.allen-hero h1 em { color: var(--allen-primary); font-style: normal; position: relative; }
+.allen-hero h1 em::after { content: ""; position: absolute; height: 8px; left: 0; right: 8%; bottom: -5px; border-radius: 50%; border-top: 3px solid #d5b75a; transform: rotate(-2deg); }
+.allen-modern .allen-hero-english { font-family: Georgia, "Times New Roman", serif; font-size: 1.35rem; line-height: 1.4; letter-spacing: -.02em; color: var(--allen-muted); margin-top: 22px; }
+.allen-modern .allen-hero-description { max-width: 435px; margin: 21px 0 26px; color: var(--allen-muted); font-size: 1rem; line-height: 1.9; }
+.allen-hero-footnote { margin-top: 22px; font-size: .8rem; color: var(--allen-muted); display: flex; align-items: center; gap: 10px; }
+.allen-check { width: 20px; height: 20px; border-radius: 50%; background: #d8eee2; color: #17654f; display: inline-flex; align-items: center; justify-content: center; font-size: .75rem; font-weight: 700; }
+.allen-hero-visual { position: relative; padding: 21px 0 28px; }
+.allen-hero-visual::before { content: ""; position: absolute; width: 110%; aspect-ratio: 1; top: 50%; left: 50%; border: 1px solid rgb(18 117 104 / 13%); border-radius: 50%; transform: translate(-50%, -50%); }
+.allen-illustration { position: relative; background: var(--allen-surface); border: 1px solid var(--allen-line); border-radius: 18px; padding: 13px; box-shadow: var(--allen-shadow); transform: rotate(2deg); }
+.allen-illustration img { width: 100%; aspect-ratio: 1.69; object-fit: cover; border-radius: 10px; }
+.allen-illustration-caption { display: flex; align-items: center; gap: 8px; color: var(--allen-muted); font-size: .625rem; letter-spacing: .07em; padding: 2px 1px 12px; font-weight: 600; }
+.allen-mini-mark { font-size: 1.3rem; line-height: 1; color: var(--allen-primary); }
+.allen-illustration-bottom { display: flex; align-items: center; justify-content: space-between; padding: 13px 4px 1px; color: var(--allen-muted); font-size: .8rem; letter-spacing: .14em; }
+.allen-illustration-bottom span:last-child { font: 1.7rem/1 Georgia, serif; color: var(--allen-primary); }
+.allen-floating-note { position: absolute; left: -28px; bottom: -1px; display: flex; gap: 14px; align-items: center; background: var(--allen-surface); border: 1px solid var(--allen-line); border-radius: 12px; box-shadow: var(--allen-shadow); padding: 15px 22px; transform: rotate(-3deg); }
+.allen-note-icon { display: grid; place-items: center; width: 37px; height: 37px; font-size: 1.4rem; border-radius: 10px; background: #fff3d4; color: #9c7714; }
+.allen-floating-note strong, .allen-floating-note div span { display: block; }
+.allen-floating-note strong { font-size: .9rem; }
+.allen-floating-note div span { font-size: .75rem; color: var(--allen-muted); }
+.allen-doodle { position: absolute; color: #759d8a; font-family: Georgia, serif; z-index: 1; pointer-events: none; }
+.allen-doodle-one { top: -42px; right: 45px; font-size: 3.5rem; transform: rotate(15deg); opacity: .45; }
+.allen-doodle-two { left: 10px; bottom: -52px; font-size: 1.3rem; font-style: italic; transform: rotate(-11deg); opacity: .55; }
+.allen-course-band { padding: 26px 0; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-top: 1px solid var(--allen-line); color: var(--allen-muted); font-size: .85rem; }
+.allen-course-band > div { display: flex; align-items: center; gap: 36px; color: var(--allen-ink); }
+.allen-course-band b { font-size: 1.1rem; letter-spacing: -.02em; font-weight: 600; }
+.allen-section { padding-block: 83px; }
+.allen-section-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; margin-bottom: 32px; }
+.allen-modern .allen-eyebrow, .allen-site .allen-eyebrow { color: var(--allen-primary); margin: 0 0 10px; font-size: .72rem; line-height: 1.6; font-weight: 600; letter-spacing: .12em; }
+.allen-section-heading > p { font-size: .9rem; color: var(--allen-muted); line-height: 1.8; }
+.allen-resource-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.allen-mint { --card-tint: #edf7f0; --card-accent: #166d55; }
+.allen-blue { --card-tint: #edf4fc; --card-accent: #396ca3; }
+.allen-lilac { --card-tint: #f3f0fb; --card-accent: #7861a9; }
+.allen-peach { --card-tint: #fcf2e9; --card-accent: #a36531; }
+[data-theme="dark"] .allen-mint { --card-tint: #1b3430; --card-accent: #9be0ba; }
+[data-theme="dark"] .allen-blue { --card-tint: #1a2e43; --card-accent: #a6cbf1; }
+[data-theme="dark"] .allen-lilac { --card-tint: #2d2a40; --card-accent: #cebaee; }
+[data-theme="dark"] .allen-peach { --card-tint: #3d2f26; --card-accent: #efc49e; }
+.allen-resource-card { display: flex; flex-direction: column; padding: 27px 25px 24px; border: 1px solid transparent; border-radius: 13px; background: var(--card-tint); color: var(--allen-ink) !important; transition: transform .2s, box-shadow .2s, border-color .2s; }
+.allen-resource-card:hover, .allen-feature-card:hover { transform: translateY(-5px); box-shadow: var(--allen-shadow); border-color: var(--card-accent); }
+.allen-card-icon { width: 46px; height: 46px; display: grid; place-items: center; border: 1px solid var(--allen-line); border-radius: 12px; background: var(--allen-surface); color: var(--card-accent); margin-bottom: 25px; }
+.allen-card-icon svg { width: 26px; height: 26px; }
+.allen-card-eyebrow { font-size: .66rem; line-height: 1.5; font-weight: 600; letter-spacing: .09em; color: var(--allen-muted); display: block; }
+.allen-resource-card h3 { font-size: 1.25rem; margin-top: 8px; }
+.allen-resource-card p { font-size: .9rem; color: var(--allen-muted); margin: 13px 0 23px; line-height: 1.85; }
+.allen-card-action { margin-top: auto; font-size: .86rem; color: var(--card-accent, var(--allen-primary)); font-weight: 600; display: flex; align-items: center; gap: 12px; }
+.allen-action-line { display: block; width: 21px; height: 1px; background: currentColor; }
+.allen-course-section { background: var(--allen-soft); padding-block: 64px; }
+.allen-course-layout { display: grid; grid-template-columns: .85fr 1.55fr; gap: 90px; align-items: center; }
+.allen-course-intro > p:not(.allen-eyebrow) { margin: 18px 0; font-size: .95rem; color: var(--allen-muted); }
+.allen-text-link { font-size: .9rem; font-weight: 600; text-decoration: underline !important; text-underline-offset: 6px; text-decoration-color: #a9cfc1 !important; }
+.allen-text-link:hover { text-decoration-color: currentColor !important; }
+.allen-course-list { display: grid; gap: 17px; }
+.allen-course-list > a { border: 1px solid var(--allen-line); border-radius: 12px; background: var(--allen-surface); padding: 23px; display: flex; align-items: center; gap: 20px; color: var(--allen-ink); transition: border-color .2s, transform .2s; }
+.allen-course-list > a:hover { border-color: var(--allen-primary); transform: translateX(3px); }
+.allen-course-list h3 { font-size: 1.12rem; margin-top: 3px; }
+.allen-course-list p { color: var(--allen-muted); font-size: .8rem; margin-top: 6px; }
+.allen-course-symbol { flex: 0 0 58px; height: 68px; display: grid; place-items: center; background: #eef6f0; color: #127568; border-radius: 9px; font: italic 1.7rem Georgia, serif; }
+.allen-course-symbol-blue { background: #edf4fc; color: #396ca3; font-size: 2.4rem; }
+.allen-course-tag { margin-left: auto; flex-shrink: 0; border: 1px solid var(--allen-line); border-radius: 30px; padding: 3px 10px; font-size: .75rem; color: var(--allen-muted); }
+.allen-lab { display: grid; grid-template-columns: .85fr 1.4fr; border-radius: 17px; overflow: hidden; border: 1px solid var(--allen-line); }
+.allen-lab-controls { background: #153f38; padding: 35px 36px; color: #e7f4ed; }
+.allen-lab-label { font-size: .68rem; letter-spacing: .11em; color: #b1d7c9; }
+.allen-lab-controls h3 { font-size: 1.7rem; color: #fff; line-height: 1.55; margin: 12px 0 14px; }
+.allen-lab-controls > p:not(.allen-equation) { font-size: .9rem; color: #bdd5cc; line-height: 1.8; }
+.allen-lab-controls .allen-equation { margin: 20px 0 22px; color: #e1f7b7; font: italic 1.45rem/1.5 Georgia, "Times New Roman", serif; min-height: 35px; }
+.allen-lab-controls label { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; font-size: .85rem; line-height: 1.5; }
+.allen-lab-controls label b { font: italic 1rem Georgia, serif; margin-left: 6px; }
+.allen-lab-controls output { display: inline-block; min-width: 42px; text-align: center; border-radius: 4px; background: rgb(255 255 255 / 11%); color: #e1f7b7; padding: 1px 5px; font-size: .85rem; font-variant-numeric: tabular-nums; }
+.allen-lab-controls input[type="range"] { width: 100%; height: 25px; margin: 9px 0 2px; padding: 0; accent-color: #c2e4ac; cursor: pointer; display: block; }
+.allen-lab-reset { margin-top: 21px; color: #e4f3ec; background: transparent; border: 1px solid #70998d; border-radius: 6px; font-size: .81rem !important; padding: 7px 12px; cursor: pointer; }
+.allen-lab-reset:hover { background: rgb(255 255 255 / 9%); }
+.allen-lab-graph { background: var(--allen-surface); padding: 28px 26px; display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+.allen-graph-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: .7rem; color: var(--allen-muted); letter-spacing: .04em; }
+.allen-graph-top > span:last-child { font: italic .95rem Georgia, serif; letter-spacing: 0; }
+.allen-lab-graph > svg { display: block; width: 100%; height: auto; color: var(--allen-muted); margin: 12px 0; }
+.allen-graph-labels { font: 15px Georgia, serif; }
+.allen-lab-graph [data-curve] { stroke: var(--allen-primary); }
+.allen-lab-graph [data-vertex] { fill: var(--allen-primary); stroke: var(--allen-surface); }
+.allen-graph-caption { display: flex; align-items: center; gap: 10px; color: var(--allen-muted); font-size: .87rem; padding: 0 20px; min-height: 50px; }
+.allen-graph-key { width: 17px; height: 3px; background: var(--allen-primary); flex-shrink: 0; border-radius: 3px; }
+.allen-lab-graph > .allen-text-link { margin: 12px 20px 0; align-self: flex-start; }
+.allen-about-section { position: relative; display: grid; grid-template-columns: 200px 1fr; gap: 55px; align-items: center; border-top: 1px solid var(--allen-line); padding-block: 65px 75px; }
+.allen-about-portrait { display: flex; align-items: center; flex-direction: column; }
+.allen-about-portrait img { width: 154px; height: 154px; object-fit: cover; border-radius: 50%; background: #ecf3ee; border: 7px solid var(--allen-soft); }
+.allen-about-portrait > span { font-size: .65rem; letter-spacing: .12em; color: var(--allen-muted); margin-top: 15px; }
+.allen-about-copy { max-width: 720px; z-index: 1; }
+.allen-about-copy > p:not(.allen-eyebrow) { margin: 18px 0; color: var(--allen-muted); font-size: .95rem; line-height: 1.95; }
+.allen-about-quote { position: absolute; right: 0; top: 10px; font: 15rem/1 Georgia, serif; color: var(--allen-soft); user-select: none; }
+.allen-final-note { border-radius: 16px; background: var(--allen-hero); padding: 38px 30px 42px; text-align: center; margin-bottom: 84px; }
+.allen-final-note > span { display: block; font-size: 2.2rem; line-height: 1.5; color: var(--allen-primary); }
+.allen-final-note h2 { font-size: 1.65rem; margin: 8px 0 12px; }
+.allen-final-note p { font-size: .95rem; color: var(--allen-muted); margin-bottom: 23px; }
+.allen-footer { clear: both; position: relative; background: var(--allen-soft); border-top: 1px solid var(--allen-line); margin: 0; padding: 49px 0 22px; }
+.allen-footer a { text-decoration: none; color: var(--allen-muted); }
+.allen-footer a:hover { color: var(--allen-primary); }
+.allen-footer-main { display: grid; grid-template-columns: 2.5fr 1fr 1fr 1fr; gap: 55px; }
+.allen-footer .allen-footer-brand { display: block; color: var(--allen-ink); font-weight: 700; font-size: 1.5rem; line-height: 1.5; }
+.allen-footer-brand span { margin-left: 6px; font-size: 1.25rem; }
+.allen-footer-intro p { font-size: .86rem; color: var(--allen-muted); margin: 13px 0; line-height: 1.9; }
+.allen-footer-note { font: italic .85rem Georgia, serif; color: var(--allen-muted); }
+.allen-footer-main > div > h2 { font-size: .9rem; font-weight: 600; color: var(--allen-ink); margin: 6px 0 17px; border: 0; padding: 0; line-height: 1.5; }
+.allen-footer-main > div:not(:first-child) > a { display: block; font-size: .85rem; margin-bottom: 11px; }
+.allen-footer-bottom { border-top: 1px solid var(--allen-line); margin-top: 37px; padding-top: 19px; display: flex; align-items: center; justify-content: space-between; gap: 20px; color: var(--allen-muted); font-size: .75rem; line-height: 1.8; }
+.allen-credit { margin-left: 20px; font-size: .68rem; }
+.allen-dialog { width: min(400px, calc(100% - 36px)); padding: 34px; border: 1px solid var(--allen-line); border-radius: 17px; background: var(--allen-surface); color: var(--allen-ink); text-align: center; box-shadow: var(--allen-shadow); margin: auto; }
+.allen-dialog::backdrop { background: rgb(10 27 23 / 60%); backdrop-filter: blur(3px); }
+.allen-dialog h2 { color: var(--allen-ink); margin: 8px 0; font-size: 1.5rem; }
+.allen-dialog p { color: var(--allen-muted); font-size: .9rem; }
+.allen-dialog img { display: block; width: 260px; height: auto; margin: 24px auto; object-fit: contain; }
+.allen-dialog a { font-size: .9rem; }
+.allen-dialog-close { position: absolute; right: 12px; top: 9px; border: 0; background: transparent; color: var(--allen-muted); font: 1.7rem/1 sans-serif !important; width: 36px; height: 36px; cursor: pointer; }
+.allen-inner-main { padding-block: 65px 85px; min-height: 65vh; }
+.allen-page-heading { max-width: 780px; margin-bottom: 42px; }
+.allen-page-heading h1 { font-size: clamp(2rem, 3.5vw, 3rem); letter-spacing: -.05em; line-height: 1.5; }
+.allen-page-heading > p:not(.allen-eyebrow) { margin-top: 15px; font-size: 1.05rem; color: var(--allen-muted); }
+.allen-page-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.allen-feature-card { display: flex; flex-direction: column; border-radius: 14px; background: var(--card-tint); border: 1px solid transparent; padding: 34px; color: var(--allen-ink) !important; transition: transform .2s, box-shadow .2s, border-color .2s; }
+.allen-feature-card h2 { font-size: 1.5rem; margin: 12px 0 17px; letter-spacing: -.02em; }
+.allen-feature-card p { color: var(--allen-muted); font-size: 1rem; margin-bottom: 28px; line-height: 1.9; }
+.allen-feature-symbol { display: block; color: var(--card-accent); font: italic 3rem/1 Georgia, serif; margin-bottom: 25px; }
+.allen-external-note { font-size: .72rem; font-weight: 400; opacity: .85; }
+.allen-callout { border-left: 3px solid var(--allen-primary); background: var(--allen-soft); border-radius: 0 12px 12px 0; padding: 27px 30px; margin-top: 40px; }
+.allen-callout h2 { font-size: 1.25rem; margin-bottom: 10px; }
+.allen-callout p { color: var(--allen-muted); font-size: .95rem; line-height: 1.9; }
+.allen-callout .allen-text-link { display: inline-block; margin-top: 12px; }
+.allen-search-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 15px; margin: 0 0 30px; }
+.allen-search-bar label { font-size: .9rem; font-weight: 600; }
+.allen-search-bar input { background: var(--allen-surface); color: var(--allen-ink); border: 1px solid var(--allen-line); border-radius: 9px; padding: 13px 17px; width: min(480px, 100%); min-width: 0; font-size: 1rem; line-height: 1.5; }
+.allen-search-bar input::placeholder { color: var(--allen-muted); opacity: 1; }
+.allen-search-bar > span { color: var(--allen-muted); font-size: .85rem; }
+.allen-vocabulary-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.allen-vocabulary-card { display: flex; flex-direction: column; min-width: 0; border: 1px solid var(--allen-line); border-radius: 12px; background: var(--allen-surface); padding: 25px; transition: border-color .18s, box-shadow .18s; }
+.allen-vocabulary-card:hover { border-color: var(--allen-primary); box-shadow: var(--allen-shadow); }
+.allen-vocabulary-card h2 { font-size: 1.2rem; margin: 10px 0 13px; line-height: 1.55; letter-spacing: -.02em; overflow-wrap: anywhere; }
+.allen-vocabulary-card p { color: var(--allen-muted); font-size: .92rem; margin-bottom: 25px; overflow-wrap: anywhere; }
+.allen-empty-state { padding: 50px 20px; border: 1px dashed var(--allen-line); border-radius: 12px; text-align: center; color: var(--allen-muted); }
+.allen-tips-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px; }
+.allen-tip { border-top: 2px solid var(--allen-line); padding: 26px 0; }
+.allen-tip-label { color: var(--allen-primary); background: var(--allen-hero); border-radius: 30px; padding: 5px 12px; font-size: .8rem; }
+.allen-tip h2 { font-size: 1.25rem; margin: 19px 0 12px; line-height: 1.6; }
+.allen-tip p { color: var(--allen-muted); font-size: 1rem; line-height: 1.9; }
+.allen-page-actions { margin-top: 32px; }
+.allen-desmos-guide { display: flex; align-items: center; gap: 36px; }
+.allen-desmos-guide > div { flex: 1; }
+.allen-desmos-guide .allen-button { flex-shrink: 0; }
+.allen-desmos-guide code { color: var(--allen-ink); background: var(--allen-surface); padding: 2px 5px; border-radius: 4px; font-size: .95em; }
+.allen-instructor { display: grid; grid-template-columns: .9fr 1.4fr; gap: 90px; align-items: center; padding-block: 18px 65px; }
+.allen-instructor-image { position: relative; padding: 28px 28px 23px; border-radius: 50% 50% 13px 13px; background: var(--allen-hero); text-align: center; }
+.allen-instructor-image img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 50%; }
+.allen-instructor-image span { display: block; font-size: .62rem; letter-spacing: .08em; color: var(--allen-muted); margin-top: 23px; }
+.allen-instructor h1 { font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.5; letter-spacing: -.05em; }
+.allen-instructor-lead { font-size: 1.15rem; margin: 22px 0 16px !important; color: var(--allen-ink); }
+.allen-instructor > div > p:not(.allen-eyebrow):not(.allen-instructor-lead) { color: var(--allen-muted); font-size: 1rem; margin-bottom: 26px; }
+.allen-values { border-top: 1px solid var(--allen-line); display: grid; grid-template-columns: 1fr 1fr; gap: 70px; padding-top: 45px; }
+.allen-values h2 { font-size: 1.5rem; margin: 10px 0 16px; }
+.allen-values p:not(.allen-eyebrow) { color: var(--allen-muted); font-size: 1rem; }
+/* Existing course and vocabulary detail pages keep their content and routes. */
+.allen-site:not(.allen-modern) #main { max-width: 1180px; width: calc(100% - 80px); margin: 45px auto 65px; padding: 0; float: none; }
+.allen-site:not(.allen-modern) #main:has(> .sidebar) { display: grid; grid-template-columns: 215px minmax(0, 1fr); gap: 60px; }
+.allen-site:not(.allen-modern) #main > .sidebar { position: static; float: none; width: auto; margin: 0; padding: 23px; background: var(--allen-soft); border: 1px solid var(--allen-line); border-radius: 13px; align-self: start; opacity: 1; }
+.allen-site:not(.allen-modern) #main > .archive, .allen-site:not(.allen-modern) #main > .page { width: auto; float: none; margin: 0; min-width: 0; padding: 0; }
+.allen-site:not(.allen-modern) .page__inner-wrap, .allen-site:not(.allen-modern) .page__content { float: none; width: 100%; }
+.allen-site:not(.allen-modern) .page__title { font-size: 2rem; line-height: 1.5; margin-bottom: 25px; color: var(--allen-ink); }
+.allen-site:not(.allen-modern) .page__content { font-size: 1.05rem; line-height: 1.9; }
+.allen-site:not(.allen-modern) .page__content h2, .allen-site:not(.allen-modern) .page__content h3 { margin-top: 30px; padding-bottom: 9px; border-bottom: 1px solid var(--allen-line); color: var(--allen-ink); }
+.allen-site:not(.allen-modern) .author__name { font-size: 1.1rem; color: var(--allen-ink); }
+.allen-site:not(.allen-modern) .author__bio, .allen-site:not(.allen-modern) .author__urls { font-size: .85rem; line-height: 1.8; }
+.allen-site:not(.allen-modern) .author__avatar img { border-radius: 50%; padding: 0; border: 4px solid var(--allen-page); }
+@media (max-width: 1150px) {
+  .allen-header-inner { gap: 19px; padding-inline: 30px; }
+  .allen-nav { gap: 19px; }
+  .allen-nav a { font-size: .85rem; }
+  .allen-header-cta { display: none; }
+  .allen-hero-grid { gap: 35px; }
+  .allen-resource-card { padding: 24px 20px; }
+  .allen-course-layout { gap: 45px; }
+  .allen-course-tag { display: none; }
+  .allen-course-band-note { display: none; }
+  .allen-footer-main { gap: 32px; }
+}
+@media (max-width: 850px) {
+  .allen-container { width: calc(100% - 48px); }
+  .allen-header-inner { min-height: 75px; padding-inline: 24px; flex-wrap: wrap; gap: 0; }
+  .allen-header-actions { margin-left: auto; }
+  .allen-nav { order: 3; width: 100%; margin: 0; padding: 6px 0 18px; flex-wrap: wrap; gap: 0; }
+  .allen-nav a { padding: 10px 15px 10px 0; flex: 0 0 33.333%; font-size: .95rem; }
+  .allen-nav a[aria-current="page"]::after { display: none; }
+  .allen-js .allen-menu-toggle { display: flex !important; }
+  .allen-js .allen-nav:not(.is-open) { display: none; }
+  .allen-hero-grid { padding-block: 48px 64px; gap: 35px; grid-template-columns: 1fr 1fr; }
+  .allen-pill { font-size: .7rem; padding-inline: 9px; }
+  .allen-modern .allen-hero h1 { font-size: 2rem; }
+  .allen-modern .allen-hero-english { font-size: 1.1rem; }
+  .allen-modern .allen-hero-description { font-size: .95rem; }
+  .allen-illustration-caption { font-size: .5rem; }
+  .allen-floating-note { padding: 12px; left: -10px; }
+  .allen-floating-note strong { font-size: .8rem; }
+  .allen-floating-note div span { font-size: .65rem; }
+  .allen-section { padding-block: 60px; }
+  .allen-resource-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .allen-resource-card { padding: 26px; }
+  .allen-resource-card p { max-width: 250px; }
+  .allen-course-layout { grid-template-columns: 1fr 1.2fr; gap: 35px; }
+  .allen-course-list > a { padding: 20px; gap: 15px; }
+  .allen-course-symbol { display: none; }
+  .allen-lab { grid-template-columns: .9fr 1.1fr; }
+  .allen-lab-controls { padding: 28px; }
+  .allen-lab-graph { padding: 20px 12px; }
+  .allen-graph-top { flex-direction: column; align-items: flex-start; padding-inline: 12px; }
+  .allen-about-section { gap: 30px; grid-template-columns: 150px 1fr; }
+  .allen-footer-main { grid-template-columns: 2fr 1fr 1fr; gap: 30px; }
+  .allen-footer-main > div:last-child { grid-column: 2 / 4; }
+  .allen-footer-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .allen-credit { display: block; margin: 5px 0 0; }
+  .allen-vocabulary-grid, .allen-tips-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .allen-instructor { gap: 40px; }
+  .allen-site:not(.allen-modern) #main { width: calc(100% - 48px); }
+  .allen-site:not(.allen-modern) #main:has(> .sidebar) { grid-template-columns: minmax(0, 1fr); gap: 30px; }
+  .allen-site:not(.allen-modern) #main > .sidebar { padding: 20px; }
+}
+@media (max-width: 600px) {
+  :root { scroll-padding-top: 90px; }
+  .allen-container { width: calc(100% - 40px); }
+  .allen-header-inner { padding-inline: 20px; min-height: 72px; }
+  .allen-logo { width: 36px; height: 36px; }
+  .allen-brand-text strong { font-size: 1.2rem; }
+  .allen-brand-text strong span { font-size: 1.05rem; }
+  .allen-brand-text small { font-size: .5rem; margin-top: 5px; }
+  .allen-header-actions { gap: 4px; }
+  .allen-icon-button { width: 37px; height: 37px; }
+  .allen-hero-grid { grid-template-columns: 1fr; gap: 38px; padding-block: 35px 51px; }
+  .allen-pill { font-size: .75rem; }
+  .allen-modern .allen-hero h1 { font-size: clamp(2rem, 8.4vw, 2.8rem); margin-top: 20px; }
+  .allen-modern .allen-hero-english { font-size: 1.15rem; }
+  .allen-modern .allen-hero-description { max-width: 100%; margin-top: 16px; }
+  .allen-hero-footnote { margin-top: 19px; gap: 9px; }
+  .allen-hero-visual { width: 93%; margin: 0 auto; padding-block: 0 23px; }
+  .allen-illustration { padding: 10px; border-radius: 13px; }
+  .allen-illustration-caption { font-size: .5rem; gap: 5px; }
+  .allen-illustration-bottom { font-size: .7rem; padding-top: 8px; }
+  .allen-floating-note { left: -8px; bottom: -4px; padding: 11px 15px; gap: 10px; }
+  .allen-note-icon { width: 31px; height: 31px; font-size: 1.1rem; }
+  .allen-floating-note strong { font-size: .8rem; }
+  .allen-floating-note div span { font-size: .7rem; }
+  .allen-doodle-one { font-size: 2.5rem; top: -30px; right: 13px; }
+  .allen-doodle-two { display: none; }
+  .allen-course-band { padding-block: 23px; flex-direction: column; gap: 13px; align-items: flex-start; }
+  .allen-course-band > div { justify-content: space-between; width: 100%; gap: 12px; }
+  .allen-course-band b { font-size: 1rem; }
+  .allen-section { padding-block: 45px; }
+  .allen-section-heading { display: block; margin-bottom: 24px; }
+  .allen-section-heading > p { margin-top: 14px; }
+  .allen-section-heading > p br { display: none; }
+  .allen-eyebrow { font-size: .65rem !important; letter-spacing: .09em !important; }
+  .allen-resource-grid { gap: 13px; }
+  .allen-resource-card { padding: 20px 16px; border-radius: 11px; }
+  .allen-card-icon { width: 39px; height: 39px; border-radius: 9px; margin-bottom: 20px; }
+  .allen-card-icon svg { width: 23px; height: 23px; }
+  .allen-resource-card .allen-card-eyebrow { font-size: .55rem; }
+  .allen-resource-card h3 { font-size: 1.15rem; }
+  .allen-resource-card p { font-size: .875rem; margin: 11px 0 19px; }
+  .allen-card-action { font-size: .8rem; }
+  .allen-action-line { display: none; }
+  .allen-course-section { padding-block: 37px; }
+  .allen-course-layout { grid-template-columns: 1fr; gap: 26px; }
+  .allen-course-intro h2 br { display: none; }
+  .allen-course-symbol { display: grid; flex-basis: 48px; height: 60px; font-size: 1.4rem; }
+  .allen-course-symbol-blue { font-size: 2.1rem; }
+  .allen-course-list > a { padding: 19px 15px; gap: 15px; }
+  .allen-course-list h3 { font-size: 1rem; }
+  .allen-course-list p { font-size: .82rem; }
+  .allen-lab { grid-template-columns: 1fr; }
+  .allen-lab-controls { padding: 26px; }
+  .allen-lab-controls h3 br { display: none; }
+  .allen-lab-controls h3 { font-size: 1.45rem; }
+  .allen-lab-controls .allen-equation { margin-block: 15px; }
+  .allen-lab-graph { padding: 24px 10px 28px; }
+  .allen-graph-top { flex-direction: row; padding-inline: 12px; font-size: .62rem; }
+  .allen-graph-top > span:last-child { font-size: .8rem; }
+  .allen-graph-caption { font-size: .85rem; padding-inline: 12px; }
+  .allen-about-section { grid-template-columns: 1fr; gap: 25px; padding-block: 35px; }
+  .allen-about-portrait { flex-direction: row; gap: 20px; }
+  .allen-about-portrait img { width: 95px; height: 95px; border-width: 4px; }
+  .allen-about-portrait > span { margin-top: 0; font-size: .7rem; }
+  .allen-about-copy h2 { font-size: 1.55rem; }
+  .allen-about-quote { font-size: 10rem; top: 65px; }
+  .allen-final-note { margin-top: 12px; margin-bottom: 45px; padding: 28px 20px 32px; }
+  .allen-final-note h2 { font-size: 1.45rem; }
+  .allen-final-note p { font-size: .9rem; }
+  .allen-footer { padding-top: 32px; }
+  .allen-footer-main { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px 15px; }
+  .allen-footer-main > .allen-footer-intro { grid-column: 1 / -1; }
+  .allen-footer-main > div:last-child { grid-column: auto; }
+  .allen-footer-main > div > h2 { font-size: .85rem; }
+  .allen-footer-main > div:not(:first-child) > a { font-size: .8rem; }
+  .allen-footer-bottom { margin-top: 23px; font-size: .7rem; }
+  .allen-inner-main { padding-block: 35px 50px; }
+  .allen-page-heading { margin-bottom: 28px; }
+  .allen-page-heading h1 { font-size: 1.9rem; }
+  .allen-page-heading > p:not(.allen-eyebrow) { font-size: 1rem; }
+  .allen-page-grid, .allen-vocabulary-grid, .allen-tips-grid { grid-template-columns: 1fr; gap: 18px; }
+  .allen-feature-card { padding: 27px; }
+  .allen-feature-card h2 { font-size: 1.4rem; }
+  .allen-feature-card p { font-size: .95rem; }
+  .allen-search-bar { gap: 10px; }
+  .allen-search-bar label { width: 100%; }
+  .allen-search-bar input { width: 100%; }
+  .allen-callout { margin-top: 28px; padding: 23px; }
+  .allen-callout h2 { font-size: 1.15rem; }
+  .allen-tips-grid { gap: 0; }
+  .allen-tip { padding-block: 25px; }
+  .allen-desmos-guide { flex-direction: column; align-items: flex-start; gap: 22px; }
+  .allen-desmos-guide code { overflow-wrap: anywhere; }
+  .allen-instructor { grid-template-columns: 1fr; gap: 30px; padding-block: 0 35px; }
+  .allen-instructor-image { max-width: 270px; width: 100%; margin: auto; padding: 23px; }
+  .allen-instructor h1 { font-size: 2.1rem; }
+  .allen-instructor-lead { font-size: 1.05rem; }
+  .allen-values { grid-template-columns: 1fr; gap: 30px; padding-top: 30px; }
+  .allen-site:not(.allen-modern) #main { width: calc(100% - 40px); margin-block: 30px 45px; }
+  .allen-site:not(.allen-modern) .page__title { font-size: 1.7rem; }
+  .allen-site:not(.allen-modern) .page__content { font-size: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root { scroll-behavior: auto; }
+  .allen-site *, .allen-site *::before, .allen-site *::after { transition: none !important; animation: none !important; }
+}

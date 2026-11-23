@@ -1,14 +1,20 @@
 ---
-layout: archive
-title: "Portfolio"
+layout: learning
+title: "学习干货"
 permalink: /portfolio/
-author_profile: true
+author_profile: false
 ---
+<main class="allen-container allen-inner-main" id="main">
+  <div class="allen-page-heading"><p class="allen-eyebrow">SMALL HABITS, BETTER LEARNING</p><h1>好方法，让努力有回响。</h1><p>把学习拆成能执行的小动作，从理解、练习到复盘，形成自己的节奏。</p></div>
+  <div class="allen-tips-grid">
+    <article class="allen-tip"><span class="allen-tip-label">理解</span><h2>先用自己的话说清概念</h2><p>合上笔记，尝试解释一个定义、公式为什么成立，以及它能解决什么问题。说不清楚的地方，就是值得回头看的地方。</p></article>
+    <article class="allen-tip"><span class="allen-tip-label">联系</span><h2>把知识点连成一张图</h2><p>每学完一章，画出概念之间的关系。例如用「函数—极限—导数—积分」串起微积分，而不只是分别背公式。</p></article>
+    <article class="allen-tip"><span class="allen-tip-label">练习</span><h2>独立完成，再看解答</h2><p>先写出已知条件、目标和可以使用的方法。即使没有做完，也保留自己的尝试，再与标准解答比较关键步骤。</p></article>
+    <article class="allen-tip"><span class="allen-tip-label">复盘</span><h2>错题本记录原因与提醒</h2><p>不必整段抄写答案。记录「错在哪里」「下次如何识别」「关键步骤是什么」，几天后不看提示再做一次。</p></article>
+    <article class="allen-tip"><span class="allen-tip-label">表达</span><h2>让阅卷人看见你的思路</h2><p>写清公式、代入、关键推导与结论；根据题目要求保留有效数字，补上单位，并注意计算器与非计算器部分的作答规则。</p></article>
+    <article class="allen-tip"><span class="allen-tip-label">节奏</span><h2>给复习留出回访的时间</h2><p>把复习分散到多个学习时段，交替练习不同类型的题目。定期回看已经学过的内容，检查自己能否独立调用知识。</p></article>
+  </div>
+  <div class="allen-button-row allen-page-actions"><a class="allen-button" href="{{ '/teaching/' | relative_url }}">从课程框架开始</a><a class="allen-button allen-button-outline" href="{{ '/publications/' | relative_url }}">进入真题练习</a></div>
+</main>
 
-{% include base_path %}
-
-
-{% for post in site.portfolio %}
-  {% include archive-single.html %}
-{% endfor %}
 
