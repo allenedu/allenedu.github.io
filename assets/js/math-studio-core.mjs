@@ -1,5 +1,5 @@
 /* Pure SVG and numerical helpers shared by the mathematics experiments. */
-import {hasMath,mixedToTex} from "./math-notation.mjs?v=latex1";
+import {hasMath,mixedToTex} from "./math-notation.mjs?v=studio2";
 export const W = 760;
 export const H = 480;
 export const color = name => "var(--ms-" + name + ")";
@@ -89,6 +89,15 @@ export class Graph {
       active=true; lastY=Y;
     }
     return tag("path",{d,fill:"none",stroke:color(name),"stroke-width":3,"stroke-linejoin":"round","stroke-linecap":"round",...attrs});
+  }
+  parametric(fn,min,max,name="green",{samples=1000,...attrs}={}) {
+    let d="",active=false;
+    for(let j=0;j<=samples;j++){
+      const [x,y]=fn(min+(max-min)*j/samples);
+      if(!Number.isFinite(x)||!Number.isFinite(y)){active=false;continue;}
+      d+=(active?"L":"M")+px(this.X(x))+" "+px(this.Y(y));active=true;
+    }
+    return tag("path",{d,fill:"none",stroke:color(name),"stroke-width":2.6,"stroke-linejoin":"round","stroke-linecap":"round",...attrs});
   }
   areaUnder(fn,min,max,name="green",baseline=0,samples=160) {
     if (Math.abs(max-min)<1e-10) return "";

@@ -1,5 +1,5 @@
-import {plainToTex} from "./math-notation.mjs?v=latex1";
-import {setMath,setMixedMath,renderMath} from "./math-renderer.mjs?v=latex1";
+import {plainToTex} from "./math-notation.mjs?v=studio2";
+import {setMath,setMixedMath,renderMath} from "./math-renderer.mjs?v=studio2";
 (function () {
   "use strict";
   var root = document.documentElement;

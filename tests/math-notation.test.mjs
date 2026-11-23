@@ -17,6 +17,11 @@ test("fractions and roots preserve mathematical grouping",()=>{
 test("very small errors use TeX scientific notation",()=>{
   assert.equal(plainToTex("2.17e-14"),"2.17\\times 10^{-14}");
 });
+test("probability notation and percentages keep Greek commands and escape the percent sign",()=>{
+  assert.equal(plainToTex("68.27%"),"68.27\\%");
+  assert.equal(plainToTex("μ + σ"),"\\mu + \\sigma");
+  assert.equal(mathSegments("标准差 σ")[1].tex,"\\sigma");
+});
 test("Chinese explanations and English method names remain prose",()=>{
   const parts=mathSegments("Euler 终点值；当 x = π 时达到最大。");
   assert.ok(parts.some(p=>p.text?.includes("Euler 终点值")));

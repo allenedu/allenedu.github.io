@@ -1,4 +1,4 @@
-import {Graph,control,fmt,result,stat,legend,color,bounds,radians,line,superscript} from "./math-studio-core.mjs?v=latex1";
+import {Graph,control,fmt,result,stat,legend,color,bounds,radians,line,superscript} from "./math-studio-core.mjs?v=studio2";
 export default [
   {
     id:"geometric-series",title:"等比级数：部分和与极限",category:"数列与级数",level:"初等数学 / 微积分",symbol:"1+r+…",

@@ -1,6 +1,8 @@
 # Mathematics studio
 
 The studio is published at `/year-archive/`, with `/math-lab/` as an alias.
+It contains 50 adjustable experiments across eight topic groups, from fractions
+and geometry to calculus, differential equations, and probability.
 Each experiment has a stable fragment, such as `#unit-circle` or
 `#riemann?n=20&theta=0.5`. Links include nondefault parameter values.
 Existing course and vocabulary content is unaffected.
@@ -39,3 +41,16 @@ Long display formulas scroll inside their own panel on narrow screens.
 The same renderer handles the homepage playground and existing page TeX.
 The vendor source, pinned version, and Apache license are recorded under
 `assets/vendor/mathjax-3.2.2/`.
+
+Every experiment has a chosen playback parameter. Playback is explicit, stops
+on manual adjustment, sharing, experiment changes, Escape, or a hidden tab,
+and uses the same clamped slider values as manual input. The precision panel
+supports numeric entry, Enter, blur, and an explicit apply action. Focus mode
+removes surrounding navigation and the catalog, while image enlargement keeps
+its horizontal scroll within the plot. Topic, learning-stage, and text filters
+can be combined and cleared together. Existing fragment links remain valid.
+
+Reference tests cover all control-bound combinations, known values, convergence
+orders, probability normalization, deterministic Monte Carlo sample prefixes,
+LaTeX notation, and production catalog consistency. Diagrams of sectors and
+rotating disks are explanatory projections; approximations are labelled.

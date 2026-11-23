@@ -1,4 +1,4 @@
-import {Graph,control,fmt,result,stat,legend,color,radians} from "./math-studio-core.mjs?v=latex1";
+import {Graph,control,fmt,result,stat,legend,color,radians} from "./math-studio-core.mjs?v=studio2";
 const category="积分与累积";
 export default [
   {

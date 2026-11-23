@@ -7,10 +7,10 @@ import {stateFor} from "../assets/js/math-studio-core.mjs";
 const values=(id,p={})=>renderExperiment(id,p).values;
 const close=(actual,expected,tolerance=1e-10)=>assert.ok(Math.abs(actual-expected)<=tolerance*Math.max(1,Math.abs(expected)),actual+" != "+expected);
 
-test("catalog has 30 distinct, discoverable experiments matching the production metadata",()=>{
-  assert.equal(experiments.length,30);
-  assert.equal(new Set(experiments.map(m=>m.id)).size,30);
-  assert.equal(categories.length,6);
+test("catalog has 50 distinct, discoverable experiments matching the production metadata",()=>{
+  assert.equal(experiments.length,50);
+  assert.equal(new Set(experiments.map(m=>m.id)).size,50);
+  assert.equal(categories.length,8);
   const catalog=JSON.parse(readFileSync(new URL("../_data/math_studio.json",import.meta.url)));
   assert.deepEqual(catalog,{categories,experiments:metadata});
 });
@@ -23,7 +23,7 @@ for(const model of experiments){
     }
     for(const raw of cases){
       const frame=renderExperiment(model.id,raw);
-      assert.ok(frame.svg.length>500);
+      assert.match(frame.svg,/<(?:path|rect|circle|polygon|line|ellipse)\b/,"every frame needs a drawable mathematical figure");
       assert.ok(!/NaN|Infinity|undefined/.test(frame.svg),model.id+" produced an invalid SVG coordinate");
       assert.ok(frame.stats.length>=3);
       assert.ok(frame.observations.length>=2);

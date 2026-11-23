@@ -1,4 +1,4 @@
-import {Graph,control,fmt,result,stat,legend,color,radians,text,line,circle,poly,vector,tag,px,offset,piFraction} from "./math-studio-core.mjs?v=latex1";
+import {Graph,control,fmt,result,stat,legend,color,radians,text,line,circle,poly,vector,tag,px,offset,piFraction} from "./math-studio-core.mjs?v=studio2";
 const category="几何与三角";
 export default [
   {

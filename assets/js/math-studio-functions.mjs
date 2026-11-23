@@ -1,4 +1,4 @@
-import {Graph,control,fmt,result,stat,legend,color,degrees,offset,shifted,factor} from "./math-studio-core.mjs?v=latex1";
+import {Graph,control,fmt,result,stat,legend,color,degrees,offset,shifted,factor} from "./math-studio-core.mjs?v=studio2";
 const category="函数与代数";
 export default [
   {
@@ -25,7 +25,7 @@ export default [
     controls:[control("m","斜率 m",-3,3,.1,1),control("b","纵截距 b",-3,3,.25,1)],
     presets:[{label:"水平直线",values:{m:0,b:2}},{label:"负斜率",values:{m:-1.5,b:1}}],
     render(p){
-      const g=new Graph({xmin:-4,xmax:4,ymin:-4,ymax:5,equal:true,id:"linear-plot"});
+      const g=new Graph({xmin:-4,xmax:4,ymin:Math.min(-4,p.b+p.m-1),ymax:Math.max(5,p.b+p.m+1),equal:true,id:"linear-plot"});
       const inclination=(degrees(Math.atan(p.m))+180)%180;
       const body=g.curve(x=>p.m*x+p.b)+g.segment(0,p.b,1,p.b,"blue",{"stroke-dasharray":"6 5"})+g.segment(1,p.b,1,p.m+p.b,"blue",{"stroke-dasharray":"6 5"})+g.point(0,p.b,6)+g.point(1,p.m+p.b,5,"blue");
       return result(g.render(body),"y = "+(p.m===0?fmt(p.b):factor(p.m,"x")+offset(p.b)),
@@ -58,7 +58,7 @@ export default [
     controls:[control("b","底数 b",.2,3,.1,2),control("A","初始系数 A",.5,2,.25,1),control("t","观察位置 x",-2,2,.1,1)],
     presets:[{label:"每步翻倍",values:{b:2,A:1,t:1}},{label:"每步减半",values:{b:.5,A:1,t:1}}],
     render(p){
-      const f=x=>p.A*p.b**x,g=new Graph({xmin:-3,xmax:3,ymin:-.5,ymax:7,id:"exponential-plot"});
+      const f=x=>p.A*p.b**x,g=new Graph({xmin:-3,xmax:3,ymin:-.5,ymax:Math.max(7,1.16*f(p.t)),id:"exponential-plot"});
       return result(g.render(g.curve(f)+g.point(p.t,f(p.t),6)+g.point(0,p.A,5,"blue")),
         "y = "+fmt(p.A)+" × "+fmt(p.b)+"ˣ",
         [stat("f(0)",fmt(p.A)),stat("f("+fmt(p.t)+")",fmt(f(p.t))),stat("f(x+1) / f(x)",fmt(p.b))],
@@ -74,7 +74,8 @@ export default [
     controls:[control("b","底数 b",.2,3,.1,2),control("t","观察位置 x",.1,5,.1,2)],
     presets:[{label:"底数小于 1",values:{b:.5,t:2}},{label:"底数等于 1",values:{b:1,t:2}}],
     render(p){
-      const g=new Graph({xmin:-.5,xmax:5.5,ymin:-4,ymax:4,id:"logarithm-plot"}),valid=Math.abs(p.b-1)>1e-8;
+      const valid=Math.abs(p.b-1)>1e-8,selected=valid?Math.log(p.t)/Math.log(p.b):0;
+      const g=new Graph({xmin:-.5,xmax:5.5,ymin:Math.min(-4,selected-1),ymax:Math.max(4,selected+1),id:"logarithm-plot"});
       const f=x=>x>0&&valid?Math.log(x)/Math.log(p.b):null;
       let body=valid?g.curve(f)+g.point(1,0,6,"blue")+g.point(p.t,f(p.t),6):"";
       if(!valid) body+=g.label(2.5,1,"底数为 1 时，对数函数无定义",{"text-anchor":"middle","font-size":19});

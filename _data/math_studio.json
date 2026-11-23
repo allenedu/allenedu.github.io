@@ -1,13 +1,85 @@
 {
   "categories": [
+    "数与图形",
     "函数与代数",
     "几何与三角",
     "极限与导数",
     "积分与累积",
     "数列与级数",
-    "微分方程"
+    "微分方程",
+    "概率与统计"
   ],
   "experiments": [
+    {
+      "id": "fractions",
+      "title": "分数：从一份到几个整体",
+      "category": "数与图形",
+      "level": "初等数学",
+      "symbol": "",
+      "symbolTex": "\\frac{m}{n}",
+      "summary": "把圆平均分成若干份，再涂色；分子超过分母时，看看会发生什么。",
+      "keywords": "分数 假分数 带分数 等分 fraction numerator denominator"
+    },
+    {
+      "id": "percentages",
+      "title": "百分比：把整体分成一百格",
+      "category": "数与图形",
+      "level": "初等数学",
+      "symbol": "",
+      "symbolTex": "p\\%",
+      "summary": "在百格图上调整比例，再看看同一比例对应多少实际数量。",
+      "keywords": "百分比 百分数 比例 percentage percent 百格"
+    },
+    {
+      "id": "completing-square",
+      "title": "完全平方：把代数拼成面积",
+      "category": "数与图形",
+      "level": "初等数学",
+      "symbol": "",
+      "symbolTex": "(a+b)^2",
+      "summary": "把一个大正方形切成四块，看中间的两倍乘积从哪里来。",
+      "keywords": "完全平方 配方 面积 代数 恒等式 completing square identity"
+    },
+    {
+      "id": "polygon-circle",
+      "title": "正多边形怎样逼近圆",
+      "category": "几何与三角",
+      "level": "初等数学 / 微积分",
+      "symbol": "",
+      "symbolTex": "A_n\\to\\pi r^2",
+      "summary": "不断增加内接正多边形的边数，同时比较周长和面积。",
+      "keywords": "正多边形 圆 周长 面积 圆周率 极限 polygon circle pi"
+    },
+    {
+      "id": "circle-area",
+      "title": "圆面积：把扇形重新排列",
+      "category": "几何与三角",
+      "level": "初等数学 / 微积分",
+      "symbol": "",
+      "symbolTex": "S=\\pi r^2",
+      "summary": "将圆切成偶数个小扇形，交错排列，观察边缘怎样逐渐变平。",
+      "keywords": "圆面积 扇形 拼图 圆周率 极限 circle area sectors"
+    },
+    {
+      "id": "similar-triangles",
+      "title": "相似图形：长度与面积的缩放",
+      "category": "几何与三角",
+      "level": "初等数学",
+      "symbol": "",
+      "symbolTex": "S_2=k^2S_1",
+      "summary": "按同一个倍率放大三角形，比较边长和面积为什么变化得不一样。",
+      "keywords": "相似 三角形 比例 缩放 面积 similar triangles scale"
+    },
+    {
+      "id": "pascal",
+      "title": "杨辉三角与二项式系数",
+      "category": "数列与级数",
+      "level": "初等数学",
+      "symbol": "",
+      "symbolTex": "\\binom{n}{k}",
+      "summary": "选中一行和一个位置，观察每个系数怎样由上一行相邻两数相加得到。",
+      "keywords": "杨辉三角 Pascal 二项式 组合数 binomial coefficient"
+    },
     {
       "id": "quadratic",
       "title": "抛物线与函数变换",
@@ -199,6 +271,56 @@
       "keywords": "牛顿法 求根 迭代 数值方法 Newton root iteration"
     },
     {
+      "id": "sinc-limit",
+      "title": "夹逼定理与第一个重要极限",
+      "category": "极限与导数",
+      "level": "微积分",
+      "symbol": "",
+      "symbolTex": "\\frac{\\sin x}{x}",
+      "summary": "不断放大原点附近，看正弦之比怎样被两条界线夹向同一个高度。",
+      "keywords": "夹逼定理 重要极限 sinx/x sinc squeeze theorem 弧度"
+    },
+    {
+      "id": "chain-rule",
+      "title": "链式法则：两次变化怎样相乘",
+      "category": "极限与导数",
+      "level": "微积分",
+      "symbol": "",
+      "symbolTex": "(f\\circ g)'",
+      "summary": "并排观察内层函数与复合函数，拆开导数中的两个变化率。",
+      "keywords": "链式法则 复合函数 求导 chain rule composition"
+    },
+    {
+      "id": "product-rule",
+      "title": "乘积法则：面积增加了哪几块",
+      "category": "极限与导数",
+      "level": "微积分",
+      "symbol": "",
+      "symbolTex": "(uv)'=u'v+uv'",
+      "summary": "让长方形的两条边同时变化，把总面积增量拆成边条与小角块。",
+      "keywords": "乘积法则 求导 面积 微分 product rule differential"
+    },
+    {
+      "id": "mean-value",
+      "title": "中值定理：找到平行的切线",
+      "category": "极限与导数",
+      "level": "微积分",
+      "symbol": "",
+      "symbolTex": "f'(c)",
+      "summary": "移动区间两端，让一条内部切线始终与端点连线平行。",
+      "keywords": "拉格朗日 中值定理 平均变化率 瞬时变化率 mean value theorem"
+    },
+    {
+      "id": "rectangle-optimization",
+      "title": "固定周长，怎样围出最大面积",
+      "category": "极限与导数",
+      "level": "初等数学 / 微积分",
+      "symbol": "",
+      "symbolTex": "S=a\\left(\\frac P2-a\\right)",
+      "summary": "用同样长的围栏围长方形，把实际形状和面积函数并排观察。",
+      "keywords": "最优化 极值 最大面积 周长 长方形 optimization rectangle"
+    },
+    {
       "id": "riemann",
       "title": "黎曼和：用小矩形拼出积分",
       "category": "积分与累积",
@@ -259,6 +381,36 @@
       "keywords": "弧长 折线 勾股 近似 arc length polyline"
     },
     {
+      "id": "disk-volume",
+      "title": "旋转体体积：把圆盘叠起来",
+      "category": "积分与累积",
+      "level": "微积分",
+      "symbol": "",
+      "symbolTex": "V=\\pi\\int f(x)^2\\,dx",
+      "summary": "把直线下的区域绕横轴旋转，用越来越多的薄圆盘近似圆锥体积。",
+      "keywords": "旋转体 圆盘法 圆锥 体积 disk method volume solid revolution"
+    },
+    {
+      "id": "improper-integral",
+      "title": "无穷区间：面积会不会无限增加",
+      "category": "积分与累积",
+      "level": "微积分",
+      "symbol": "",
+      "symbolTex": "\\int_1^\\infty x^{-p}\\,dx",
+      "summary": "把积分上限不断向右推，比较曲线下降速度与总面积是否有界。",
+      "keywords": "反常积分 广义积分 收敛 发散 p积分 improper integral"
+    },
+    {
+      "id": "integral-average",
+      "title": "函数平均值：等面积的水平高度",
+      "category": "积分与累积",
+      "level": "微积分",
+      "symbol": "",
+      "symbolTex": "f_{\\mathrm{avg}}",
+      "summary": "用一个水平长方形替代曲线下面的面积，找到函数在区间上的平均高度。",
+      "keywords": "函数平均值 积分中值定理 等面积 average value integral"
+    },
+    {
       "id": "geometric-series",
       "title": "等比级数：部分和与极限",
       "category": "数列与级数",
@@ -307,6 +459,56 @@
       "symbolTex": "y'=f(y)",
       "summary": "改变增长率、承载量和初值，观察解曲线如何顺着方向场运动。",
       "keywords": "方向场 Logistic 逻辑斯蒂 微分方程 平衡解 slope field"
+    },
+    {
+      "id": "polar-rose",
+      "title": "极坐标：用一个公式画玫瑰线",
+      "category": "函数与代数",
+      "level": "进阶数学",
+      "symbol": "",
+      "symbolTex": "r=A\\cos(k\\theta)",
+      "summary": "让角度带着半径一起转动，观察简单余弦式怎样画出不同花瓣。",
+      "keywords": "极坐标 玫瑰线 花瓣 polar rose coordinates"
+    },
+    {
+      "id": "parametric",
+      "title": "参数方程：两个振动合成一条轨迹",
+      "category": "函数与代数",
+      "level": "进阶数学",
+      "symbol": "",
+      "symbolTex": "\\bigl(x(t),y(t)\\bigr)",
+      "summary": "把横向和纵向的简谐振动合成 Lissajous 曲线，看点怎样沿轨迹运行。",
+      "keywords": "参数方程 李萨如 Lissajous parametric frequency phase"
+    },
+    {
+      "id": "binomial",
+      "title": "二项分布：重复试验的成功次数",
+      "category": "概率与统计",
+      "level": "初等数学 / 进阶数学",
+      "symbol": "",
+      "symbolTex": "X\\sim B(n,p)",
+      "summary": "调整试验次数和成功概率，观察概率柱形图怎样移动和改变形状。",
+      "keywords": "二项分布 概率 独立试验 成功次数 binomial distribution probability"
+    },
+    {
+      "id": "normal",
+      "title": "正态分布：概率藏在面积里",
+      "category": "概率与统计",
+      "level": "进阶数学",
+      "symbol": "",
+      "symbolTex": "X\\sim N(\\mu,\\sigma^2)",
+      "summary": "移动均值、改变标准差，再用同样的标准差倍数框住中间一段。",
+      "keywords": "正态分布 均值 标准差 概率密度 normal Gaussian distribution"
+    },
+    {
+      "id": "monte-carlo",
+      "title": "用随机点估计圆周率",
+      "category": "概率与统计",
+      "level": "初等数学 / 进阶数学",
+      "symbol": "",
+      "symbolTex": "\\pi\\approx4\\frac{N_{\\mathrm{in}}}{N}",
+      "summary": "在单位正方形里撒点，用落进四分之一圆的比例估计圆周率。",
+      "keywords": "蒙特卡洛 随机 圆周率 概率 Monte Carlo pi simulation"
     }
   ]
 }

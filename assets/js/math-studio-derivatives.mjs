@@ -1,4 +1,4 @@
-import {Graph,control,fmt,result,stat,legend,color,shifted} from "./math-studio-core.mjs?v=latex1";
+import {Graph,control,fmt,result,stat,legend,color,shifted} from "./math-studio-core.mjs?v=studio2";
 const category="极限与导数";
 export default [
   {
@@ -57,7 +57,7 @@ export default [
     question:"原函数达到最高点时，导函数的值是什么？导函数为负时原函数怎样变化？",
     keywords:"导函数 增减性 极值 chain rule derivative sign",
     controls:[control("k","函数中的系数 k",.5,3,.1,1),control("t","观察位置 x₀（弧度）",-3,3,.05,1)],
-    presets:[{label:"观察最高点",values:{k:1,t:1.55}},{label:"频率加倍",values:{k:2,t:1}}],
+    presets:[{label:"最高点附近",values:{k:1,t:1.55}},{label:"频率加倍",values:{k:2,t:1}}],
     render(p){
       const f=x=>Math.sin(p.k*x),d=x=>p.k*Math.cos(p.k*x),g=new Graph({xmin:-Math.PI,xmax:Math.PI,ymin:-3.5,ymax:3.5,id:"derivative-sign-plot",xticks:[[-Math.PI,"−π"],[0,"0"],[Math.PI,"π"]]});
       const slope=d(p.t),body=g.curve(f)+g.curve(d,"blue")+g.curve(x=>f(p.t)+slope*(x-p.t),"gold",{"stroke-dasharray":"7 5","stroke-width":1.8})+g.segment(p.t,0,p.t,slope,"blue",{"stroke-dasharray":"4 5","stroke-width":1.3})+g.point(p.t,f(p.t),6)+g.point(p.t,slope,6,"blue");
@@ -76,7 +76,8 @@ export default [
     presets:[{label:"放大 10 倍",values:{t:0,radius:.1,s:.7}},{label:"较远处的近似",values:{t:0,radius:1.5,s:1}}],
     render(p){
       const x=p.t+p.radius*p.s,v=Math.exp(p.t),L=z=>v*(1+z-p.t),actual=Math.exp(x),approx=L(x);
-      const xmin=p.t-p.radius,xmax=p.t+p.radius,ymin=Math.min(0,L(xmin))-.1,ymax=Math.exp(xmax)*1.12;
+      const xmin=p.t-p.radius,xmax=p.t+p.radius,low=Math.min(L(xmin),Math.exp(xmin)),high=Math.max(L(xmax),Math.exp(xmax)),pad=(high-low)*.13;
+      const ymin=low-pad,ymax=high+pad;
       const g=new Graph({xmin,xmax,ymin,ymax,id:"linear-approximation-plot"});
       const body=g.curve(Math.exp)+g.curve(L,"gold",{"stroke-width":2.3})+g.segment(x,approx,x,actual,"pink",{"stroke-width":4})+g.point(p.t,v,6)+g.point(x,actual,6)+g.point(x,approx,5,"gold");
       return result(g.render(body),"eˣ ≈ e^("+fmt(p.t)+") [1 + "+shifted("x",p.t)+"]",
@@ -93,7 +94,8 @@ export default [
     controls:[control("x0","初始近似 x₀",.3,3,.05,2.5),control("steps","迭代次数 n",0,5,1,2)],
     presets:[{label:"从右侧出发",values:{x0:2.5,steps:3}},{label:"较小的初值",values:{x0:.3,steps:1}}],
     render(p){
-      const g=new Graph({xmin:-.3,xmax:3.8,ymin:-2.5,ymax:8,id:"newton-plot"}),f=x=>x*x-2;
+      const f=x=>x*x-2,maxIterate=Math.max(p.x0,p.steps?(p.x0+2/p.x0)/2:p.x0);
+      const g=new Graph({xmin:-.3,xmax:Math.max(3.8,maxIterate+.3),ymin:-2.5,ymax:Math.max(8,f(maxIterate)+1),id:"newton-plot"});
       let x=p.x0,body=g.curve(f),points=[x];
       for(let i=0;i<p.steps;i++){
         const next=(x+2/x)/2;
