@@ -1,4 +1,4 @@
-import {Graph,control,fmt,result,stat,legend,color,radians} from "./math-studio-core.mjs";
+import {Graph,control,fmt,result,stat,legend,color,radians} from "./math-studio-core.mjs?v=latex1";
 const category="积分与累积";
 export default [
   {
@@ -32,7 +32,7 @@ export default [
       const positive=p.b*p.b/2,negative=p.a*p.a/2,net=positive-negative;
       const body=g.areaUnder(x=>x,p.a,0,"pink")+g.areaUnder(x=>x,0,p.b,"green")+g.curve(x=>x)+g.point(p.a,p.a,5,"pink")+g.point(p.b,p.b,5);
       return result(g.render(body),"∫ₐᵇ x dx = ½(b² − a²)",
-        [stat("上方面积",fmt(positive)),stat("下方面积（大小）",fmt(negative)),stat("定积分 / 几何面积",fmt(net)+" / "+fmt(positive+negative))],
+        [stat("上方面积",fmt(positive)),stat("下方面积（大小）",fmt(negative)),stat("定积分",fmt(net)),stat("几何面积",fmt(positive+negative))],
         ["定积分把横轴上方记为正、下方记为负；几何面积把两部分的大小相加。",Math.abs(net)<1e-9?"两块区域正负抵消，积分为 0，但总几何面积不一定为 0。":net>0?"上方区域更大，所以定积分为正。":"下方区域更大，所以定积分为负。"],
         {positive,negative,integral:net,geometricArea:positive+negative},legend(["green","正的贡献"],["pink","负的贡献"]));
     }
@@ -92,7 +92,7 @@ export default [
       const shape=(end)=>{const points=[[-r,p.c]];for(let i=0;i<=150;i++){const x=-r+(end+r)*i/150;points.push([x,x*x]);}points.push([end,p.c]);return points;};
       const body=g.polygon(shape(r),"blue",{"fill-opacity":.06})+g.polygon(shape(z),"blue",{"fill-opacity":.22})+g.curve(x=>x*x)+g.segment(g.xmin,p.c,g.xmax,p.c,"gold")+g.point(-r,p.c,6,"gold")+g.point(r,p.c,6,"gold")+g.segment(z,z*z,z,p.c,"blue",{"stroke-width":2});
       return result(g.render(body),"S = ∫ (c − x²) dx，区间 [−√c, √c]；完整面积 = 4c√c / 3",
-        [stat("左 / 右交点横坐标",fmt(-r)+" / "+fmt(r)),stat("完整区域面积",fmt(exact,6)),stat("当前已填充面积",fmt(current,6))],
+        [stat("左交点横坐标",fmt(-r)),stat("右交点横坐标",fmt(r)),stat("完整区域面积",fmt(exact,6)),stat("当前已填充面积",fmt(current,6))],
         ["交点由 x² = c 得到，所以积分区间也会随着直线高度变化。","每一根竖直小条的高度都是 c − x²；把这些小条累积起来，得到两曲线之间的面积。"],
         {left:-r,right:r,exact,current},legend(["green","下边界 y = x²"],["gold","上边界 y = c"],["blue","累积的区域"]));
     }

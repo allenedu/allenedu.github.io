@@ -1,4 +1,4 @@
-import {Graph,control,fmt,result,stat,legend,color,shifted} from "./math-studio-core.mjs";
+import {Graph,control,fmt,result,stat,legend,color,shifted} from "./math-studio-core.mjs?v=latex1";
 const category="极限与导数";
 export default [
   {

@@ -1,4 +1,4 @@
-import {Graph,control,fmt,result,stat,legend,color,degrees,offset,shifted,factor} from "./math-studio-core.mjs";
+import {Graph,control,fmt,result,stat,legend,color,degrees,offset,shifted,factor} from "./math-studio-core.mjs?v=latex1";
 const category="函数与代数";
 export default [
   {

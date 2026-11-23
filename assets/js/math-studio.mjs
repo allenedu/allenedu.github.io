@@ -1,5 +1,7 @@
-import {experiments,categories,getExperiment,renderExperiment} from "./math-studio-models.mjs";
-import {escape,fmt,stateFor} from "./math-studio-core.mjs";
+import {experiments,categories,getExperiment,renderExperiment} from "./math-studio-models.mjs?v=latex1";
+import {escape,fmt,stateFor} from "./math-studio-core.mjs?v=latex1";
+import {mixedHTML} from "./math-notation.mjs?v=latex1";
+import {setMath,setMixedMath,renderMath} from "./math-renderer.mjs?v=latex1";
 
 const studio=document.querySelector("[data-math-studio]");
 if(studio){
@@ -25,18 +27,19 @@ if(studio){
   function updateScene(){
     const frame=renderExperiment(current.id,state);
     state=frame.state;cache.set(current.id,{...state});
-    formula.textContent=frame.formula;
+    setMath(formula,frame.formulaTex,{display:true});
     svg.innerHTML='<title id="ms-chart-title">'+escape(current.title)+'</title><desc id="ms-chart-description">'+escape(current.summary+"。"+frame.observations.join(" "))+'</desc>'+frame.svg;
-    metrics.innerHTML=frame.stats.map(s=>'<div><dt>'+escape(s.label)+'</dt><dd>'+escape(s.value)+'</dd></div>').join("");
-    notes.innerHTML=frame.observations.map(s=>"<li>"+escape(s)+"</li>").join("");
-    legend.innerHTML=frame.legend.map(s=>'<span><i class="ms-key ms-key-'+escape(s.color)+'" aria-hidden="true"></i>'+escape(s.label)+"</span>").join("");
+    metrics.innerHTML=frame.stats.map(s=>'<div><dt>'+mixedHTML(s.label)+'</dt><dd>'+mixedHTML(s.value,{numbers:true})+'</dd></div>').join("");
+    notes.innerHTML=frame.observations.map(s=>"<li>"+mixedHTML(s)+"</li>").join("");
+    legend.innerHTML=frame.legend.map(s=>'<span><i class="ms-key ms-key-'+escape(s.color)+'" aria-hidden="true"></i>'+mixedHTML(s.label)+"</span>").join("");
     for(const c of current.controls){
       const input=controls.querySelector('[data-ms-parameter="'+c.key+'"]');
       const output=controls.querySelector('[data-ms-output="'+c.key+'"]');
       input.value=String(state[c.key]);
       input.setAttribute("aria-valuetext",fmt(state[c.key])+(c.unit||""));
-      output.textContent=fmt(state[c.key])+(c.unit||"");
+      output.innerHTML=mixedHTML(fmt(state[c.key])+(c.unit||""),{numbers:true});
     }
+    renderMath(studio);
     shareField.hidden=true;status.textContent="";
   }
   function setState(values){
@@ -45,15 +48,15 @@ if(studio){
   function selectExperiment(id,{raw,historyMode="push",focus=false,scroll=false}={}){
     current=getExperiment(id)||getExperiment("unit-circle");
     state=stateFor(current,raw||cache.get(current.id)||{});
-    title.textContent=current.title;
-    summary.textContent=current.summary;
+    setMixedMath(title,current.title);
+    setMixedMath(summary,current.summary);
     category.textContent=current.category+" / "+current.level;
-    question.textContent=current.question;
-    controls.innerHTML=current.controls.map(c=>'<div class="ms-control"><label for="ms-input-'+escape(c.key)+'"><span>'+escape(c.label)+'</span><output for="ms-input-'+escape(c.key)+'" data-ms-output="'+escape(c.key)+'"></output></label><input type="range" id="ms-input-'+escape(c.key)+'" min="'+c.min+'" max="'+c.max+'" step="'+c.step+'" value="'+state[c.key]+'" data-ms-parameter="'+escape(c.key)+'"></div>').join("");
+    setMixedMath(question,current.question);
+    controls.innerHTML=current.controls.map(c=>'<div class="ms-control"><label for="ms-input-'+escape(c.key)+'"><span>'+mixedHTML(c.label)+'</span><output for="ms-input-'+escape(c.key)+'" data-ms-output="'+escape(c.key)+'"></output></label><input type="range" id="ms-input-'+escape(c.key)+'" min="'+c.min+'" max="'+c.max+'" step="'+c.step+'" value="'+state[c.key]+'" data-ms-parameter="'+escape(c.key)+'"></div>').join("");
     controls.querySelectorAll("[data-ms-parameter]").forEach(input=>{
       input.addEventListener("input",()=>{state[input.dataset.msParameter]=Number(input.value);updateScene();writeHash();});
     });
-    presets.innerHTML=current.presets.map((p,i)=>'<button type="button" data-ms-preset="'+i+'">'+escape(p.label)+'</button>').join("");
+    presets.innerHTML=current.presets.map((p,i)=>'<button type="button" data-ms-preset="'+i+'">'+mixedHTML(p.label)+'</button>').join("");
     presets.querySelectorAll("[data-ms-preset]").forEach(button=>button.addEventListener("click",()=>setState(current.presets[Number(button.dataset.msPreset)].values)));
     for(const card of cards)card.setAttribute("aria-pressed",String(card.dataset.experimentId===current.id));
     updateScene();
@@ -84,7 +87,7 @@ if(studio){
     const terms=searchTerm.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
     let visible=0;
     for(const card of cards){
-      const haystack=(card.textContent+" "+card.dataset.keywords).toLocaleLowerCase();
+      const haystack=(card.dataset.searchText||card.textContent+" "+card.dataset.keywords).toLocaleLowerCase();
       const match=(categoryFilter==="全部"||card.dataset.category===categoryFilter)&&terms.every(term=>haystack.includes(term));
       card.hidden=!match;if(match)visible++;
     }

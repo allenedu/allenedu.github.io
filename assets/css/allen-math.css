@@ -1,0 +1,28 @@
+/* All visible notation is rendered from LaTeX, including SVG graph labels. */
+.allen-tex { display: inline-block; max-width: 100%; vertical-align: baseline; letter-spacing: normal; }
+.allen-tex > mjx-container { margin: 0 !important; }
+[data-tex][data-math-display="true"] { overflow-x: auto; overflow-y: hidden; padding: 5px 0; max-width: 100%; }
+[data-tex] > mjx-container { color: inherit; }
+[data-tex] mjx-container[jax="SVG"] { direction: ltr; text-align: inherit; max-width: none; }
+[data-tex] mjx-container[jax="SVG"][display="true"] { margin: .35em 0 !important; text-align: center; }
+.allen-site mjx-container svg { display: inline; max-width: none; height: auto; vertical-align: baseline; }
+.ms-canvas > g[data-tex-svg] > svg, .allen-graph-labels > g[data-tex-svg] > svg { overflow: visible; }
+.ms-canvas mjx-container svg { height: auto; }
+.ms-formula { font-family: inherit; font-style: normal; font-size: 1.1rem; line-height: 1.65; }
+.ms-formula mjx-container { min-width: min-content; }
+.ms-control label .allen-tex, .ms-metrics dt .allen-tex, .ms-legend .allen-tex { font-size: 1em; }
+.ms-metrics dd { font-family: inherit; }
+.ms-symbol { font-style: normal; font-size: 1.15rem; min-width: 68px; max-width: 70%; }
+.ms-symbol mjx-container { font-size: 1em !important; }
+.ms-card-title > .allen-tex, .ms-stage-header h2 > .allen-tex { font-size: 1em; }
+.allen-equation { font-style: normal !important; min-height: 2.5rem; }
+.allen-graph-top > span:last-child { font-style: normal; }
+.allen-course-symbol .allen-tex { font-size: .9em; }
+.allen-hero .allen-doodle .allen-tex { font-size: 1em; }
+.allen-doodle-two { min-width: 110px; }
+.allen-site .allen-tex svg text, .ms-canvas g[data-tex-svg] svg text { font-family: "Times New Roman", "Songti SC", SimSun, serif; }
+@media (max-width: 600px) {
+  .ms-formula { font-size: 1rem; }
+  .ms-symbol { font-size: 1.05rem; }
+  .allen-doodle-one { min-width: 50px; }
+}

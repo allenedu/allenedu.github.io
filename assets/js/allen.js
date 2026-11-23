@@ -1,3 +1,5 @@
+import {plainToTex} from "./math-notation.mjs?v=latex1";
+import {setMath,setMixedMath,renderMath} from "./math-renderer.mjs?v=latex1";
 (function () {
   "use strict";
   var root = document.documentElement;
@@ -91,7 +93,7 @@
       var parameters = {};
       inputs.forEach(function (input) {
         parameters[input.dataset.parameter] = Number(input.value);
-        lab.querySelector('[data-output="' + input.dataset.parameter + '"]').textContent = number(Number(input.value));
+        setMixedMath(lab.querySelector('[data-output="' + input.dataset.parameter + '"]'),number(Number(input.value)),{numbers:true});
       });
       var a = parameters.a, h = parameters.h, k = parameters.k;
       /* The viewport is x in [-5, 5], y in [-4, 6]. SVG y increases downward. */
@@ -108,10 +110,11 @@
       var term = h === 0 ? "x²" : "(x " + (h < 0 ? "+ " : "− ") + number(Math.abs(h)) + ")²";
       var coefficient = a === 1 ? "" : a === -1 ? "−" : number(a) + " ";
       var formula = a === 0 ? "y = " + number(k) : "y = " + coefficient + term + (k === 0 ? "" : " " + (k < 0 ? "− " : "+ ") + number(Math.abs(k)));
-      equation.textContent = formula;
+      setMath(equation,plainToTex(formula));
       var explanation = a === 0 ? "a = 0，函数退化为水平直线 y = " + number(k) + "。" : "开口" + (a > 0 ? "向上" : "向下") + "，顶点位于 (" + number(h) + ", " + number(k) + ")。";
-      insight.textContent = explanation;
+      setMixedMath(insight,explanation);
       if (description) description.textContent = formula + "。" + explanation;
+      renderMath(lab);
     }
     inputs.forEach(function (input) { input.addEventListener("input", updateGraph); });
     lab.querySelector("[data-reset-lab]").addEventListener("click", function () {

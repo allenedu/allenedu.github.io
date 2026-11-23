@@ -14,6 +14,7 @@
       "category": "函数与代数",
       "level": "初等数学",
       "symbol": "x²",
+      "symbolTex": "x^{2}",
       "summary": "改变开口系数与顶点位置，看二次函数怎样伸缩、翻转和平移。",
       "keywords": "二次函数 顶点 quadratic parabola transformation"
     },
@@ -23,6 +24,7 @@
       "category": "函数与代数",
       "level": "初等数学",
       "symbol": "kx+b",
+      "symbolTex": "mx+b",
       "summary": "用一个斜率三角形，把“横着走一格、竖着走多少”画出来。",
       "keywords": "一次函数 斜率 截距 linear slope intercept"
     },
@@ -32,6 +34,7 @@
       "category": "函数与代数",
       "level": "初等数学",
       "symbol": "|x|",
+      "symbolTex": "\\lvert x\\rvert",
       "summary": "把绝对值理解成距离，观察 V 形图像的顶点与折角。",
       "keywords": "绝对值 距离 不可导 absolute value distance"
     },
@@ -41,6 +44,7 @@
       "category": "函数与代数",
       "level": "初等数学",
       "symbol": "bˣ",
+      "symbolTex": "b^{x}",
       "summary": "改变底数，比较不断放大与不断缩小的乘法规律。",
       "keywords": "指数 增长 衰减 exponential growth decay"
     },
@@ -50,6 +54,7 @@
       "category": "函数与代数",
       "level": "初等数学",
       "symbol": "log",
+      "symbolTex": "\\log_b x",
       "summary": "观察对数函数的共同经过点、增减性，以及底数为 1 的特殊情况。",
       "keywords": "对数 底数 定义域 logarithm domain"
     },
@@ -59,6 +64,7 @@
       "category": "函数与代数",
       "level": "初等数学",
       "symbol": "1/x",
+      "symbolTex": "\\frac{1}{x}",
       "summary": "拖动中心与系数，观察两支曲线和水平、竖直渐近线。",
       "keywords": "反比例 双曲线 渐近线 reciprocal hyperbola asymptote"
     },
@@ -68,6 +74,7 @@
       "category": "几何与三角",
       "level": "初等数学",
       "symbol": "sin θ",
+      "symbolTex": "\\sin\\theta",
       "summary": "转动半径，把圆上点的横纵坐标与正弦曲线联系起来。",
       "keywords": "单位圆 正弦 余弦 正切 unit circle sine cosine tangent"
     },
@@ -77,6 +84,7 @@
       "category": "几何与三角",
       "level": "初等数学",
       "symbol": "A sin",
+      "symbolTex": "A\\sin x",
       "summary": "分别调整振幅、频率、相位和中线，感受周期函数的变换。",
       "keywords": "振幅 周期 相位 正弦 sinusoid amplitude period phase"
     },
@@ -86,6 +94,7 @@
       "category": "几何与三角",
       "level": "初等数学",
       "symbol": "a²+b²",
+      "symbolTex": "a^{2}+b^{2}",
       "summary": "改变直角三角形的两条直角边，看三个正方形的面积关系。",
       "keywords": "勾股定理 直角三角形 正方形 面积 Pythagorean theorem"
     },
@@ -95,6 +104,7 @@
       "category": "几何与三角",
       "level": "初等数学",
       "symbol": "cos C",
+      "symbolTex": "\\cos\\theta",
       "summary": "固定两条边，拖动夹角，观察第三边与面积的同步变化。",
       "keywords": "三角形 正弦 余弦定理 面积 cosine rule sine area"
     },
@@ -104,6 +114,7 @@
       "category": "几何与三角",
       "level": "初等数学",
       "symbol": "ellipse",
+      "symbolTex": "\\mathcal{E}",
       "summary": "移动椭圆上的点，观察到两个焦点的距离之和。",
       "keywords": "椭圆 焦点 圆 圆锥曲线 ellipse focus conic"
     },
@@ -113,6 +124,7 @@
       "category": "几何与三角",
       "level": "初等数学",
       "symbol": "u + v",
+      "symbolTex": "\\mathbf{u}+\\mathbf{v}",
       "summary": "改变两向量的长度和夹角，亲眼看平行四边形法则。",
       "keywords": "向量 平行四边形 点积 投影 vector dot product"
     },
@@ -122,6 +134,7 @@
       "category": "几何与三角",
       "level": "进阶数学",
       "symbol": "z × w",
+      "symbolTex": "z\\,w",
       "summary": "在复平面上，把复数相乘看成模长相乘、角度相加。",
       "keywords": "复数 辐角 模 旋转 complex multiplication rotation argand"
     },
@@ -131,6 +144,7 @@
       "category": "极限与导数",
       "level": "微积分",
       "symbol": "lim",
+      "symbolTex": "\\lim",
       "summary": "让左右两点靠近同一个位置，再单独改变这个位置的函数值。",
       "keywords": "极限 连续 单点 间断 limit continuity removable discontinuity"
     },
@@ -140,6 +154,7 @@
       "category": "极限与导数",
       "level": "微积分",
       "symbol": "ε–δ",
+      "symbolTex": "\\varepsilon\\text{–}\\delta",
       "summary": "调整横向邻域与纵向误差带，看整段函数图像能否装进误差带。",
       "keywords": "epsilon delta 极限 严格定义 邻域 误差"
     },
@@ -149,6 +164,7 @@
       "category": "极限与导数",
       "level": "微积分",
       "symbol": "Δy/Δx",
+      "symbolTex": "\\frac{\\Delta y}{\\Delta x}",
       "summary": "让两点的间距逐渐缩小，比较平均变化率与瞬时变化率。",
       "keywords": "导数 割线 切线 差商 derivative secant tangent"
     },
@@ -158,6 +174,7 @@
       "category": "极限与导数",
       "level": "微积分",
       "symbol": "f′(x)",
+      "symbolTex": "f'(x)",
       "summary": "把正弦函数与导函数放在一起，联系切线斜率、增减性和极值。",
       "keywords": "导函数 增减性 极值 chain rule derivative sign"
     },
@@ -167,6 +184,7 @@
       "category": "极限与导数",
       "level": "微积分",
       "symbol": "≈",
+      "symbolTex": "\\approx",
       "summary": "不断缩小观察窗口，看看光滑曲线怎样逐渐贴近切线。",
       "keywords": "局部线性化 线性近似 微分 linearization approximation"
     },
@@ -176,6 +194,7 @@
       "category": "极限与导数",
       "level": "微积分",
       "symbol": "xₙ₊₁",
+      "symbolTex": "x_{n+1}",
       "summary": "从曲线上的点作切线，用切线与横轴的交点产生下一个近似。",
       "keywords": "牛顿法 求根 迭代 数值方法 Newton root iteration"
     },
@@ -185,6 +204,7 @@
       "category": "积分与累积",
       "level": "微积分",
       "symbol": "Σ fΔx",
+      "symbolTex": "\\sum f_i\\Delta x",
       "summary": "增加矩形数量，比较左端点、中点和右端点取样带来的误差。",
       "keywords": "黎曼和 积分 矩形 近似 riemann sum midpoint"
     },
@@ -194,6 +214,7 @@
       "category": "积分与累积",
       "level": "微积分",
       "symbol": "± area",
+      "symbolTex": "\\pm S",
       "summary": "分别累积横轴上方和下方的区域，理解“带符号的面积”。",
       "keywords": "定积分 正负 面积 signed area integral"
     },
@@ -203,6 +224,7 @@
       "category": "积分与累积",
       "level": "微积分",
       "symbol": "F′ = f",
+      "symbolTex": "F'=f",
       "summary": "移动积分上限，把被积函数的高度与累积函数的变化率联系起来。",
       "keywords": "微积分基本定理 累积函数 integral accumulation fundamental theorem"
     },
@@ -212,6 +234,7 @@
       "category": "积分与累积",
       "level": "微积分",
       "symbol": "∫ ≈",
+      "symbolTex": "\\int",
       "summary": "对同一个积分，同时用直线段和二次曲线近似，比较两种误差。",
       "keywords": "梯形 Simpson 辛普森 数值积分 quadrature trapezoid"
     },
@@ -221,6 +244,7 @@
       "category": "积分与累积",
       "level": "微积分",
       "symbol": "∫(g−f)",
+      "symbolTex": "\\int(g-f)\\,dx",
       "summary": "改变水平直线的高度，观察交点、积分区间和封闭区域的面积。",
       "keywords": "两曲线 面积 交点 integral between curves"
     },
@@ -230,6 +254,7 @@
       "category": "积分与累积",
       "level": "微积分",
       "symbol": "ds",
+      "symbolTex": "ds",
       "summary": "把曲线切成短段，用小线段的长度之和逐渐逼近弧长。",
       "keywords": "弧长 折线 勾股 近似 arc length polyline"
     },
@@ -239,6 +264,7 @@
       "category": "数列与级数",
       "level": "初等数学 / 微积分",
       "symbol": "1+r+…",
+      "symbolTex": "1+r+\\cdots",
       "summary": "改变公比与项数，比较逐渐稳定、交替靠近和不收敛的情形。",
       "keywords": "等比 数列 级数 部分和 收敛 geometric series convergence"
     },
@@ -248,6 +274,7 @@
       "category": "数列与级数",
       "level": "微积分",
       "symbol": "Pₙ(x)",
+      "symbolTex": "P_n(x)",
       "summary": "增加展开项数并扩大观察范围，比较局部逼近与远处的误差。",
       "keywords": "泰勒 Taylor Maclaurin 幂级数 多项式 近似"
     },
@@ -257,6 +284,7 @@
       "category": "数列与级数",
       "level": "进阶数学",
       "symbol": "Fourier",
+      "symbolTex": "\\sum\\sin",
       "summary": "叠加更多奇次谐波，观察 Fourier 逼近与跳点附近的振荡。",
       "keywords": "傅里叶 Fourier 方波 正弦 叠加 Gibbs 吉布斯"
     },
@@ -266,6 +294,7 @@
       "category": "微分方程",
       "level": "微积分",
       "symbol": "y′ = y",
+      "symbolTex": "y'=y",
       "summary": "用当前点的斜率走下一步，比较数值折线与准确解。",
       "keywords": "欧拉 Euler 微分方程 斜率 数值解 ODE"
     },
@@ -275,6 +304,7 @@
       "category": "微分方程",
       "level": "微积分",
       "symbol": "y′ = ry…",
+      "symbolTex": "y'=f(y)",
       "summary": "改变增长率、承载量和初值，观察解曲线如何顺着方向场运动。",
       "keywords": "方向场 Logistic 逻辑斯蒂 微分方程 平衡解 slope field"
     }

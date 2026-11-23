@@ -20,8 +20,8 @@ redirect_from:
         <div class="allen-hero-footnote"><span class="allen-check" aria-hidden="true">✓</span> 公益分享 <span aria-hidden="true">·</span> 免费开放 <span aria-hidden="true">·</span> 一起进步</div>
       </div>
       <div class="allen-hero-visual">
-        <span class="allen-doodle allen-doodle-one" aria-hidden="true">∑</span><span class="allen-doodle allen-doodle-two" aria-hidden="true">x² + y²</span>
-        <div class="allen-illustration"><div class="allen-illustration-caption"><span class="allen-mini-mark" aria-hidden="true">✳</span><span>A LITTLE CURIOSITY. A WORLD OF POSSIBILITIES.</span></div><img src="{{ '/images/discussys.png' | relative_url }}" alt="学生们围坐在一起，讨论黑板上的数学问题" width="1024" height="546" fetchpriority="high"><div class="allen-illustration-bottom"><span>理解 · 探索 · 发现</span><span aria-hidden="true">∞</span></div></div>
+        <span class="allen-doodle allen-doodle-one" aria-hidden="true" data-tex="\sum"></span><span class="allen-doodle allen-doodle-two" aria-hidden="true" data-tex="x^2+y^2"></span>
+        <div class="allen-illustration"><div class="allen-illustration-caption"><span class="allen-mini-mark" aria-hidden="true">✳</span><span>A LITTLE CURIOSITY. A WORLD OF POSSIBILITIES.</span></div><img src="{{ '/images/discussys.png' | relative_url }}" alt="学生们围坐在一起，讨论黑板上的数学问题" width="1024" height="546" fetchpriority="high"><div class="allen-illustration-bottom"><span>理解 · 探索 · 发现</span><span aria-hidden="true" data-tex="\infty"></span></div></div>
         <div class="allen-floating-note"><span class="allen-note-icon" aria-hidden="true">✦</span><div><strong>每一个「为什么」</strong><span>都可以成为进步的起点</span></div></div>
       </div>
     </div>
@@ -38,7 +38,7 @@ redirect_from:
   </section>
 
   <section class="allen-course-section">
-    <div class="allen-container allen-course-layout"><div class="allen-course-intro"><p class="allen-eyebrow">BUILD A STRONG FOUNDATION</p><h2>知识连成线，<br>学习才有章法。</h2><p>从函数到微积分，先看清整幅地图，再一步步建立自己的知识体系。</p><a class="allen-text-link" href="{{ '/teaching/' | relative_url }}">浏览课程大纲</a></div><div class="allen-course-list"><a href="{{ '/teaching/ap-precalculus' | relative_url }}"><span class="allen-course-symbol" aria-hidden="true">f(x)</span><div><span class="allen-card-eyebrow">FOUNDATION</span><h3>AP Precalculus</h3><p>函数、三角与数学建模，筑牢微积分的起点。</p></div><span class="allen-course-tag">预微积分</span></a><a href="{{ '/teaching/ap-calculus' | relative_url }}"><span class="allen-course-symbol allen-course-symbol-blue" aria-hidden="true">∫</span><div><span class="allen-card-eyebrow">EXPLORATION</span><h3>AP Calculus AB / BC</h3><p>从变化率到累积量，理解微积分的核心联系。</p></div><span class="allen-course-tag">微积分</span></a></div></div>
+    <div class="allen-container allen-course-layout"><div class="allen-course-intro"><p class="allen-eyebrow">BUILD A STRONG FOUNDATION</p><h2>知识连成线，<br>学习才有章法。</h2><p>从函数到微积分，先看清整幅地图，再一步步建立自己的知识体系。</p><a class="allen-text-link" href="{{ '/teaching/' | relative_url }}">浏览课程大纲</a></div><div class="allen-course-list"><a href="{{ '/teaching/ap-precalculus' | relative_url }}"><span class="allen-course-symbol" aria-hidden="true" data-tex="f(x)"></span><div><span class="allen-card-eyebrow">FOUNDATION</span><h3>AP Precalculus</h3><p>函数、三角与数学建模，筑牢微积分的起点。</p></div><span class="allen-course-tag">预微积分</span></a><a href="{{ '/teaching/ap-calculus' | relative_url }}"><span class="allen-course-symbol allen-course-symbol-blue" aria-hidden="true" data-tex="\int"></span><div><span class="allen-card-eyebrow">EXPLORATION</span><h3>AP Calculus AB / BC</h3><p>从变化率到累积量，理解微积分的核心联系。</p></div><span class="allen-course-tag">微积分</span></a></div></div>
   </section>
 
   <section class="allen-section allen-container" id="math-lab" aria-labelledby="lab-title">

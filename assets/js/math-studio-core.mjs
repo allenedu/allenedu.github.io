@@ -1,4 +1,5 @@
 /* Pure SVG and numerical helpers shared by the mathematics experiments. */
+import {hasMath,mixedToTex} from "./math-notation.mjs?v=latex1";
 export const W = 760;
 export const H = 480;
 export const color = name => "var(--ms-" + name + ")";
@@ -24,7 +25,11 @@ export const degrees = value => value * 180 / Math.PI;
 export function tag(name, attrs = {}, body = "") {
   return "<" + name + Object.entries(attrs).map(([k,v]) => " " + k + '="' + escape(v) + '"').join("") + ">" + body + "</" + name + ">";
 }
-export const text = (x, y, label, attrs = {}) => tag("text", {x:px(x), y:px(y), fill:color("ink"), "font-size":15, ...attrs}, escape(label));
+export const text = (x, y, label, attrs = {}) => tag("text", {
+  x:px(x), y:px(y), fill:color("ink"), "font-size":15,
+  ...(hasMath(label,{numbers:true})?{"data-tex-svg":mixedToTex(label,{numbers:true}),"data-math-label":label}:{}),
+  ...attrs
+}, escape(label));
 export const line = (x1, y1, x2, y2, name = "green", attrs = {}) => tag("line", {x1:px(x1), y1:px(y1), x2:px(x2), y2:px(y2), stroke:color(name), "stroke-width":2.4, ...attrs});
 export const circle = (cx, cy, r, name = "green", attrs = {}) => tag("circle", {cx:px(cx), cy:px(cy), r:px(r), fill:color(name), ...attrs});
 export const rect = (x, y, width, height, name = "green", attrs = {}) => tag("rect", {x:px(x), y:px(y), width:px(Math.max(0,width)), height:px(Math.max(0,height)), fill:color(name), ...attrs});
