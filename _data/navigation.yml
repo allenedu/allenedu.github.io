@@ -11,8 +11,8 @@ main:
   - title: "学习干货"
     en: "Study tips"
     url: /portfolio/
-  - title: "Desmos"
-    en: "Graphing tools"
+  - title: "数学实验室"
+    en: "Interactive mathematics"
     url: /year-archive/
   - title: "讲师介绍"
     en: "Meet Allen"

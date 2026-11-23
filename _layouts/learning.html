@@ -14,6 +14,10 @@
     <meta name="theme-color" content="#127568">
     <link rel="icon" type="image/svg+xml" href="{{ '/images/allen-mark.svg' | relative_url }}">
     {% include allen-assets.html %}
+    {% if page.math_studio %}
+    <link rel="stylesheet" href="{{ '/assets/css/math-studio.css' | relative_url }}">
+    <script type="module" src="{{ '/assets/js/math-studio.mjs' | relative_url }}"></script>
+    {% endif %}
   </head>
   <body class="allen-site allen-modern" id="top">
     {% include masthead.html %}
