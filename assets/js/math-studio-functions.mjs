@@ -26,11 +26,12 @@ export default [
     presets:[{label:"水平直线",values:{m:0,b:2}},{label:"负斜率",values:{m:-1.5,b:1}}],
     render(p){
       const g=new Graph({xmin:-4,xmax:4,ymin:-4,ymax:5,equal:true,id:"linear-plot"});
+      const inclination=(degrees(Math.atan(p.m))+180)%180;
       const body=g.curve(x=>p.m*x+p.b)+g.segment(0,p.b,1,p.b,"blue",{"stroke-dasharray":"6 5"})+g.segment(1,p.b,1,p.m+p.b,"blue",{"stroke-dasharray":"6 5"})+g.point(0,p.b,6)+g.point(1,p.m+p.b,5,"blue");
       return result(g.render(body),"y = "+(p.m===0?fmt(p.b):factor(p.m,"x")+offset(p.b)),
-        [stat("Δx",1),stat("Δy",fmt(p.m)),stat("倾斜角（主值）",fmt(degrees(Math.atan(p.m)))+"°")],
+        [stat("Δx",1),stat("Δy",fmt(p.m)),stat("倾斜角 θ ∈ [0°, 180°)",fmt(inclination)+"°")],
         ["斜率 m = Δy / Δx，描述每单位水平变化对应的竖直变化。",p.m===0?"m = 0 时直线水平，函数值不随 x 改变。":p.m>0?"m > 0，随着 x 增大，函数值上升。":"m < 0，随着 x 增大，函数值下降。"],
-        {slope:p.m,intercept:p.b},legend(["green","直线"],["blue","斜率三角形"]));
+        {slope:p.m,intercept:p.b,inclination},legend(["green","直线"],["blue","斜率三角形"]));
     }
   },
   {

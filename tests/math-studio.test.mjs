@@ -38,6 +38,8 @@ for(const model of experiments){
 test("linear, quadratic, absolute value, and reciprocal degeneracies are explicit",()=>{
   assert.equal(values("quadratic",{a:0}).vertex,null);
   close(values("linear",{m:2,b:1}).slope,2);
+  close(values("linear",{m:-1,b:0}).inclination,135);
+  close(values("linear",{m:0,b:1}).inclination,0);
   const v=values("absolute-value",{a:2});
   close(v.leftSlope,-2);close(v.rightSlope,2);assert.equal(v.differentiable,false);
   assert.equal(values("absolute-value",{a:0}).differentiable,true);
