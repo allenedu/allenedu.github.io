@@ -22,6 +22,14 @@ test("probability notation and percentages keep Greek commands and escape the pe
   assert.equal(plainToTex("μ + σ"),"\\mu + \\sigma");
   assert.equal(mathSegments("标准差 σ")[1].tex,"\\sigma");
 });
+test("school geometry and set symbols render as complete LaTeX fragments",()=>{
+  assert.equal(plainToTex("A ∩ B"),"A \\cap B");
+  assert.equal(plainToTex("α + β + γ"),"\\alpha + \\beta + \\gamma");
+  assert.equal(plainToTex("ℝ"),"\\mathbb{R}");
+  assert.equal(plainToTex("∠A"),"\\angle A");
+  assert.deepEqual(mathSegments("原边长 AB").filter(p=>p.tex!==undefined).map(p=>p.tex),["AB"]);
+  assert.deepEqual(mathSegments("中线 CG 与 GM").filter(p=>p.tex!==undefined).map(p=>p.tex),["CG","GM"]);
+});
 test("Chinese explanations and English method names remain prose",()=>{
   const parts=mathSegments("Euler 终点值；当 x = π 时达到最大。");
   assert.ok(parts.some(p=>p.text?.includes("Euler 终点值")));

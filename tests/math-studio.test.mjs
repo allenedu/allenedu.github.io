@@ -7,9 +7,9 @@ import {stateFor} from "../assets/js/math-studio-core.mjs";
 const values=(id,p={})=>renderExperiment(id,p).values;
 const close=(actual,expected,tolerance=1e-10)=>assert.ok(Math.abs(actual-expected)<=tolerance*Math.max(1,Math.abs(expected)),actual+" != "+expected);
 
-test("catalog has 50 distinct, discoverable experiments matching the production metadata",()=>{
-  assert.equal(experiments.length,50);
-  assert.equal(new Set(experiments.map(m=>m.id)).size,50);
+test("catalog has 62 distinct, discoverable experiments matching the production metadata",()=>{
+  assert.equal(experiments.length,62);
+  assert.equal(new Set(experiments.map(m=>m.id)).size,62);
   assert.equal(categories.length,8);
   const catalog=JSON.parse(readFileSync(new URL("../_data/math_studio.json",import.meta.url)));
   assert.deepEqual(catalog,{categories,experiments:metadata});

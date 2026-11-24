@@ -1,9 +1,9 @@
-import {Graph,control,fmt,result,stat,legend,color,radians,text,line,circle,poly,vector,tag,px,offset,piFraction} from "./math-studio-core.mjs?v=studio2";
+import {Graph,control,fmt,result,stat,legend,color,radians,text,line,circle,poly,vector,tag,px,offset,piFraction} from "./math-studio-core.mjs?v=school3";
 const category="几何与三角";
 export default [
   {
     id:"unit-circle",title:"单位圆与三角函数",category,level:"初等数学",symbol:"sin θ",
-    summary:"转动半径，把圆上点的横纵坐标与正弦曲线联系起来。",
+    summary:"转动半径，把圆上点的横纵坐标与正弦、余弦两条曲线联系起来。",
     question:"转过半圈后，正弦和余弦的符号会怎样变化？什么时候 tan θ 没有定义？",
     keywords:"单位圆 正弦 余弦 正切 unit circle sine cosine tangent",
     controls:[control("theta","转角 θ",0,360,1,40,{unit:"°"})],
@@ -14,11 +14,11 @@ export default [
       const h=new Graph({xmin:0,xmax:2*Math.PI,ymin:-1.3,ymax:1.3,area:{x:438,y:100,w:278,h:260},id:"circle-sine",xticks:[[0,"0"],[Math.PI,"π"],[2*Math.PI,"2π"]],yticks:[[-1,"−1"],[0,"0"],[1,"1"]]});
       const arc=[[0,0]];for(let i=0;i<=80;i++){const a=t*i/80;arc.push([.28*Math.cos(a),.28*Math.sin(a)]);}
       const body=g.ellipse(0,0,1,1,"muted")+g.polygon(arc,"gold",{"fill-opacity":.25})+g.segment(0,0,c,s,"green")+g.segment(c,0,c,s,"green",{"stroke-width":5})+g.segment(0,0,c,0,"blue",{"stroke-width":5})+g.segment(0,s,c,s,"green",{"stroke-dasharray":"4 4","stroke-width":1.5})+g.point(c,s,7);
-      const right=h.curve(Math.sin,"green")+h.segment(t,0,t,s,"gold",{"stroke-dasharray":"5 5"})+h.point(t,s,7);
-      const svg=text(202,35,"圆上的点 P = (cos θ, sin θ)",{"text-anchor":"middle","font-size":17})+g.render(body)+text(575,35,"把纵坐标展开成正弦曲线",{"text-anchor":"middle","font-size":17})+h.render(right)+text(202,443,"半径 = 1",{"text-anchor":"middle",fill:color("muted")})+text(575,415,"横轴：θ（弧度）",{"text-anchor":"middle",fill:color("muted")});
+      const right=h.curve(Math.sin,"green")+h.curve(Math.cos,"blue",{"stroke-dasharray":"7 4","stroke-width":2.5})+h.segment(t,Math.min(0,s,c),t,Math.max(0,s,c),"gold",{"stroke-dasharray":"5 5"})+h.point(t,s,7)+h.point(t,c,6,"blue");
+      const svg=text(202,35,"圆上的点 P = (cos θ, sin θ)",{"text-anchor":"middle","font-size":17})+g.render(body)+text(575,35,"把坐标展开成两条曲线",{"text-anchor":"middle","font-size":17})+h.render(right)+text(202,443,"半径 = 1",{"text-anchor":"middle",fill:color("muted")})+text(575,415,"横轴：θ（弧度）",{"text-anchor":"middle",fill:color("muted")});
       return result(svg,"cos²θ + sin²θ = 1",
         [stat("sin θ",fmt(s)),stat("cos θ",fmt(c)),stat("tan θ",Math.abs(c)<1e-10?"未定义":fmt(s/c))],
-        ["圆上点的横坐标是 cos θ，纵坐标是 sin θ；右图的点与左图同步。",Math.abs(c)<1e-10?"此时 cos θ = 0，因此 tan θ = sin θ / cos θ 没有定义。":"角度绕圆一周，坐标回到原处，这正是周期性的来源。"],
+        ["圆上点的横坐标是 cos θ，纵坐标是 sin θ；右图的两个点与左图的同色坐标段同步。",Math.abs(c)<1e-10?"此时 cos θ = 0，因此 tan θ = sin θ / cos θ 没有定义。":"角度绕圆一周，坐标回到原处，这正是周期性的来源。"],
         {sine:s,cosine:c,tangent:Math.abs(c)<1e-10?null:s/c},legend(["green","正弦 / 纵坐标"],["blue","余弦 / 横坐标"],["gold","角度与位置"]));
     }
   },
@@ -30,12 +30,12 @@ export default [
     controls:[control("A","振幅 A",0,2,.1,1),control("omega","角频率 ω",.5,3,.1,1),control("phi","相位 φ",-180,180,5,0,{unit:"°"}),control("d","中线高度 d",-1.5,1.5,.1,0)],
     presets:[{label:"更快的振荡",values:{A:1,omega:2,phi:0,d:0}},{label:"平移与放大",values:{A:1.5,omega:1,phi:90,d:.5}}],
     render(p){
-      const t=radians(p.phi),g=new Graph({xmin:-2*Math.PI,xmax:2*Math.PI,ymin:-4,ymax:4,id:"sine-wave-plot",xticks:[[-2*Math.PI,"−2π"],[-Math.PI,"−π"],[0,"0"],[Math.PI,"π"],[2*Math.PI,"2π"]]});
-      return result(g.render(g.segment(g.xmin,p.d,g.xmax,p.d,"gold",{"stroke-dasharray":"7 6"})+g.curve(x=>p.A*Math.sin(p.omega*x+t)+p.d)),
+      const t=radians(p.phi),shift=-t/p.omega,g=new Graph({xmin:-2*Math.PI,xmax:2*Math.PI,ymin:-4,ymax:4,id:"sine-wave-plot",xticks:[[-2*Math.PI,"−2π"],[-Math.PI,"−π"],[0,"0"],[Math.PI,"π"],[2*Math.PI,"2π"]]});
+      return result(g.render(g.segment(g.xmin,p.d,g.xmax,p.d,"gold",{"stroke-dasharray":"7 6"})+g.segment(shift,g.ymin,shift,g.ymax,"blue",{"stroke-dasharray":"5 6","stroke-width":1.4})+g.curve(x=>p.A*Math.sin(p.omega*x+t)+p.d)+g.point(shift,p.d,6,"blue")),
         "y = "+fmt(p.A)+" sin("+fmt(p.omega)+"x"+(p.phi===0?"":(p.phi<0?" − ":" + ")+piFraction(p.phi))+")"+offset(p.d)+" （角度统一用弧度）",
-        [stat("振幅",fmt(p.A)),stat("周期",p.A===0?"常数函数，无最小正周期":fmt(2*Math.PI/p.omega)),stat("值域","["+fmt(p.d-p.A)+", "+fmt(p.d+p.A)+"]")],
+        [stat("振幅",fmt(p.A)),stat("周期",p.A===0?"常数函数，无最小正周期":fmt(2*Math.PI/p.omega)),stat("值域","["+fmt(p.d-p.A)+", "+fmt(p.d+p.A)+"]"),stat("参考相位位置 x（弧度）",fmt(shift,6))],
         ["ω 越大，波形在横向压得越紧；非零振幅时周期为 2π / ω。","相位滑块以角度显示；计算时转换为弧度。整体水平移动量为 −φ / ω（φ 用弧度）。"],
-        {amplitude:p.A,period:p.A===0?null:2*Math.PI/p.omega},legend(["green","正弦波"],["gold","中线"]));
+        {amplitude:p.A,period:p.A===0?null:2*Math.PI/p.omega,phase:t,horizontalShift:shift},legend(["green","正弦波"],["gold","中线"],["blue","相位为零的参考位置"]));
     }
   },
   {
@@ -85,9 +85,9 @@ export default [
       const F1=p.a>=p.b?[-c,0]:[0,-c],F2=p.a>=p.b?[c,0]:[0,c];
       const d1=Math.hypot(x-F1[0],y-F1[1]),d2=Math.hypot(x-F2[0],y-F2[1]);
       const g=new Graph({xmin:-4,xmax:4,ymin:-4,ymax:4,equal:true,id:"ellipse-plot"});
-      const body=g.ellipse(0,0,p.a,p.b)+g.segment(...F1,x,y,"gold")+g.segment(...F2,x,y,"blue")+g.point(...F1,6,"gold")+g.point(...F2,6,"blue")+g.point(x,y,7)+g.label(F1[0]-.1,F1[1]-.45,"F₁",{"text-anchor":"end"})+g.label(F2[0]+.1,F2[1]-.45,"F₂");
+      const body=g.ellipse(0,0,p.a,p.b)+g.segment(...F1,x,y,"gold")+g.segment(...F2,x,y,"blue")+g.point(...F1,6,"gold")+g.point(...F2,6,"blue")+g.point(x,y,7)+g.label(x+.12,y+.24,"P")+g.label(F1[0]-.1,F1[1]-.45,"F₁",{"text-anchor":"end"})+g.label(F2[0]+.1,F2[1]-.45,"F₂");
       return result(g.render(body),"x² / "+fmt(p.a*p.a)+" + y² / "+fmt(p.b*p.b)+" = 1",
-        [stat("PF₁",fmt(d1)),stat("PF₂",fmt(d2)),stat("距离之和",fmt(d1+d2))],
+        [stat("PF₁",fmt(d1)),stat("PF₂",fmt(d2)),stat("距离之和",fmt(d1+d2)),stat("长轴长度",fmt(2*Math.max(p.a,p.b)))],
         ["无论点 P 移到哪里，PF₁ + PF₂ 始终等于长轴长度 2 max(a, b)。","焦点总在较长的轴上。a = b 时两焦点重合于圆心，椭圆成为圆。"],
         {distance1:d1,distance2:d2,sum:d1+d2,majorAxis:2*Math.max(p.a,p.b)},legend(["green","椭圆与点 P"],["gold","PF₁"],["blue","PF₂"]));
     }
@@ -103,11 +103,11 @@ export default [
       const t=radians(p.theta),vx=p.v*Math.cos(t),vy=p.v*Math.sin(t),sx=p.u+vx,sy=vy,dot=p.u*vx;
       const g=new Graph({xmin:-4,xmax:7,ymin:-4,ymax:4,equal:true,id:"vectors-plot"});
       const V=(x1,y1,x2,y2,c)=>vector(g.X(x1),g.Y(y1),g.X(x2),g.Y(y2),c);
-      const body=g.segment(p.u,0,sx,sy,"blue",{"stroke-dasharray":"6 5","stroke-opacity":.7})+g.segment(vx,vy,sx,sy,"green",{"stroke-dasharray":"6 5","stroke-opacity":.7})+V(0,0,p.u,0,"green")+V(0,0,vx,vy,"blue")+V(0,0,sx,sy,"pink")+g.point(0,0,4,"muted");
+      const body=g.segment(0,0,vx,0,"gold",{"stroke-width":7,"stroke-opacity":.55})+g.segment(vx,0,vx,vy,"gold",{"stroke-dasharray":"5 5","stroke-width":1.5})+g.segment(p.u,0,sx,sy,"blue",{"stroke-dasharray":"6 5","stroke-opacity":.7})+g.segment(vx,vy,sx,sy,"green",{"stroke-dasharray":"6 5","stroke-opacity":.7})+V(0,0,p.u,0,"green")+V(0,0,vx,vy,"blue")+V(0,0,sx,sy,"pink")+g.point(0,0,4,"muted")+g.label(p.u/2,-.4,"u",{"text-anchor":"middle"})+g.label(vx*.6,vy*.6+.3,"v",{"text-anchor":"middle"});
       return result(g.render(body),"u · v = |u| |v| cos θ",
-        [stat("合向量","("+fmt(sx)+", "+fmt(sy)+")"),stat("|u + v|",fmt(Math.hypot(sx,sy))),stat("u · v",fmt(dot))],
+        [stat("合向量","("+fmt(sx)+", "+fmt(sy)+")"),stat("|u + v|",fmt(Math.hypot(sx,sy))),stat("u · v",fmt(dot)),stat("v 沿 u 方向的投影",fmt(vx))],
         ["把两向量放到同一起点，平行四边形的对角线就是它们的和。",Math.abs(dot)<1e-9?"两向量垂直时，点积为 0。":dot>0?"夹角是锐角时，v 沿 u 方向的投影为正，点积也为正。":"夹角是钝角或平角时，v 沿 u 方向的投影为负，点积也为负。"],
-        {sumX:sx,sumY:sy,magnitude:Math.hypot(sx,sy),dot},legend(["green","u"],["blue","v"],["pink","u + v"]));
+        {sumX:sx,sumY:sy,magnitude:Math.hypot(sx,sy),dot,projection:vx},legend(["green","u"],["blue","v"],["pink","u + v"],["gold","v 的水平投影"]));
     }
   },
   {

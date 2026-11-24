@@ -1,4 +1,4 @@
-import {Graph,control,fmt,result,stat,legend,color,bounds,radians,line,superscript} from "./math-studio-core.mjs?v=studio2";
+import {Graph,control,fmt,result,stat,legend,color,bounds,radians,line,superscript} from "./math-studio-core.mjs?v=school3";
 export default [
   {
     id:"geometric-series",title:"等比级数：部分和与极限",category:"数列与级数",level:"初等数学 / 微积分",symbol:"1+r+…",
@@ -73,11 +73,13 @@ export default [
       const exact=Math.exp(p.T),h=p.T/p.n,g=new Graph({xmin:0,xmax:p.T+.04,ymin:0,ymax:exact*1.12,id:"euler-plot"});
       let y=1,body=g.curve(Math.exp);
       for(let i=0;i<p.n;i++){const next=y*(1+h);body+=g.segment(i*h,y,(i+1)*h,next,"blue",{"stroke-width":2})+g.point(i*h,y,p.n>20?2:3.5,"blue");y=next;}
+      let refined=1;const half=h/2;
+      for(let i=0;i<2*p.n;i++){const next=refined*(1+half);body+=g.segment(i*half,refined,(i+1)*half,next,"gold",{"stroke-width":1.8,"stroke-dasharray":"5 3"});refined=next;}
       body+=g.point(p.T,y,6,"blue")+g.point(p.T,exact,6)+g.segment(p.T,y,p.T,exact,"pink",{"stroke-dasharray":"4 4"});
       return result(g.render(body),"y′ = y, y(0) = 1;   yₙ₊₁ = yₙ + h yₙ",
-        [stat("步长 h",fmt(h,5)),stat("Euler 终点值",fmt(y,6)),stat("准确值 eᵀ",fmt(exact,6)),stat("终点绝对误差",fmt(Math.abs(exact-y),6))],
-        ["Euler 法用每一步起点的斜率代替整段真实变化，得到蓝色折线。","本例中缩小步长会改善精度；数值方法的步长选择还要结合方程性质与稳定性要求。"],
-        {step:h,approximation:y,exact,error:Math.abs(exact-y)},legend(["green","准确解 eˣ"],["blue","Euler 数值解"],["pink","终点误差"]));
+        [stat("步长 h",fmt(h,5)),stat("Euler 终点值",fmt(y,6)),stat("准确值 eᵀ",fmt(exact,6)),stat("原步长终点误差",fmt(Math.abs(exact-y),6)),stat("步长减半后的误差",fmt(Math.abs(exact-refined),6))],
+        ["Euler 法用每一步起点的斜率代替整段真实变化，得到蓝色折线；金色虚线用两倍步数、也就是一半步长作对照。","本例中缩小步长会改善精度；数值方法的步长选择还要结合方程性质与稳定性要求，不能把本例的表现直接推广到所有方程。"],
+        {step:h,approximation:y,exact,error:Math.abs(exact-y),refined,refinedError:Math.abs(exact-refined)},legend(["green","准确解 eˣ"],["blue","当前步长数值解"],["gold","步长减半的数值解"],["pink","原步长终点误差"]));
     }
   },
   {

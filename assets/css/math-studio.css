@@ -76,6 +76,7 @@ body.ms-focus-mode .ms-page { width: calc(100% - 32px); max-width: 1500px; paddi
 .ms-presets { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 5px; }
 .ms-presets button { border: 1px solid #59877a; border-radius: 20px; background: transparent; color: #d9eee2; padding: 5px 10px; cursor: pointer; font-size: .78rem; line-height: 1.6; }
 .ms-presets button:hover { background: rgb(255 255 255 / 11%); border-color: #a1c9b9; }
+.ms-presets button[aria-pressed="true"] { color: #143e33; border-color: #d5eabf; background: #d5eabf; }
 .ms-reset { margin-top: 23px; padding: 9px 14px; background: #d5eabf; color: #184137; border: 1px solid #d5eabf; border-radius: 7px; font-size: .85rem !important; font-weight: 600; cursor: pointer; }
 .ms-reset:hover { background: #e4f2d3; }
 .allen-modern .ms-keyboard-hint { font-size: .75rem; color: #b7d1c5; margin-top: 16px; line-height: 1.8; }

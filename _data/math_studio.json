@@ -141,13 +141,43 @@
       "keywords": "反比例 双曲线 渐近线 reciprocal hyperbola asymptote"
     },
     {
+      "id": "linear-system",
+      "title": "二元一次方程组：交点就是解",
+      "category": "函数与代数",
+      "level": "初等数学",
+      "symbol": "",
+      "symbolTex": "\\ell_1\\cap\\ell_2",
+      "summary": "调整两条直线，亲眼区分唯一解、平行无解和重合时的无穷多解。",
+      "keywords": "二元一次方程组 直线 交点 平行 重合 linear system simultaneous equations"
+    },
+    {
+      "id": "quadratic-roots",
+      "title": "判别式：抛物线与横轴见几次面",
+      "category": "函数与代数",
+      "level": "初等数学",
+      "symbol": "",
+      "symbolTex": "\\Delta=b^2-4ac",
+      "summary": "改变二次方程的系数，把实根个数与函数图像的横轴交点联系起来。",
+      "keywords": "一元二次方程 实根 判别式 重根 零点 quadratic roots discriminant"
+    },
+    {
+      "id": "absolute-inequality",
+      "title": "绝对值不等式：到中心的距离",
+      "category": "函数与代数",
+      "level": "初等数学",
+      "symbol": "",
+      "symbolTex": "|x-c|\\le r",
+      "summary": "把绝对值理解成距离，在函数图像和数轴区间之间来回对照。",
+      "keywords": "绝对值 不等式 距离 解集 闭区间 absolute inequality interval"
+    },
+    {
       "id": "unit-circle",
       "title": "单位圆与三角函数",
       "category": "几何与三角",
       "level": "初等数学",
       "symbol": "sin θ",
       "symbolTex": "\\sin\\theta",
-      "summary": "转动半径，把圆上点的横纵坐标与正弦曲线联系起来。",
+      "summary": "转动半径，把圆上点的横纵坐标与正弦、余弦两条曲线联系起来。",
       "keywords": "单位圆 正弦 余弦 正切 unit circle sine cosine tangent"
     },
     {
@@ -209,6 +239,56 @@
       "symbolTex": "z\\,w",
       "summary": "在复平面上，把复数相乘看成模长相乘、角度相加。",
       "keywords": "复数 辐角 模 旋转 complex multiplication rotation argand"
+    },
+    {
+      "id": "triangle-angles",
+      "title": "三角形内角和：形状变，和不变",
+      "category": "几何与三角",
+      "level": "初等数学",
+      "symbol": "",
+      "symbolTex": "\\alpha+\\beta+\\gamma=180^\\circ",
+      "summary": "移动三角形顶点，同时观察三个内角怎样此消彼长。",
+      "keywords": "三角形 内角和 锐角 钝角 角度 triangle angles angle sum"
+    },
+    {
+      "id": "inscribed-angle",
+      "title": "圆周角定理：同一段弧的两个角",
+      "category": "几何与三角",
+      "level": "初等数学",
+      "symbol": "",
+      "symbolTex": "\\angle ACB=\\tfrac12\\angle AOB",
+      "summary": "固定弧的两端，把圆上的观察点移来移去，对照圆周角与圆心角。",
+      "keywords": "圆周角 圆心角 同弧 圆周角定理 inscribed angle circle theorem"
+    },
+    {
+      "id": "circle-tangent",
+      "title": "圆的切线：半径与切线垂直",
+      "category": "几何与三角",
+      "level": "初等数学",
+      "symbol": "",
+      "symbolTex": "PT=\\sqrt{d^2-r^2}",
+      "summary": "把一个点从圆内移到圆外，观察切线什么时候出现，以及切线段怎样变长。",
+      "keywords": "切线 圆 半径 垂直 切线长 circle tangent right angle"
+    },
+    {
+      "id": "triangle-centroid",
+      "title": "三角形重心：三条中线相遇",
+      "category": "几何与三角",
+      "level": "初等数学",
+      "symbol": "",
+      "symbolTex": "CG:GM=2:1",
+      "summary": "改变顶点位置，观察三条中线始终相交，且重心把每条中线按相同比例分开。",
+      "keywords": "三角形 中线 重心 中点 比例 centroid median midpoint"
+    },
+    {
+      "id": "rotation",
+      "title": "平面旋转：位置变，形状不变",
+      "category": "几何与三角",
+      "level": "初等数学",
+      "symbol": "",
+      "symbolTex": "\\begin{pmatrix}\\cos\\theta&-\\sin\\theta\\\\\\sin\\theta&\\cos\\theta\\end{pmatrix}",
+      "summary": "把三角形绕原点旋转，用对应边长和面积验证旋转前后的图形全等。",
+      "keywords": "旋转 全等 坐标变换 九十度 rotation isometry transformation"
     },
     {
       "id": "function-limit",
@@ -411,6 +491,16 @@
       "keywords": "函数平均值 积分中值定理 等面积 average value integral"
     },
     {
+      "id": "arithmetic-sequence",
+      "title": "等差数列：每一步增加同样多",
+      "category": "数列与级数",
+      "level": "初等数学",
+      "symbol": "",
+      "symbolTex": "a_n=a_1+(n-1)d",
+      "summary": "让一串离散数值按相同的差递增或递减，再观察前若干项的和。",
+      "keywords": "等差数列 公差 通项 前n项和 arithmetic sequence series"
+    },
+    {
       "id": "geometric-series",
       "title": "等比级数：部分和与极限",
       "category": "数列与级数",
@@ -509,6 +599,36 @@
       "symbolTex": "\\pi\\approx4\\frac{N_{\\mathrm{in}}}{N}",
       "summary": "在单位正方形里撒点，用落进四分之一圆的比例估计圆周率。",
       "keywords": "蒙特卡洛 随机 圆周率 概率 Monte Carlo pi simulation"
+    },
+    {
+      "id": "conditional-probability",
+      "title": "条件概率：换一个观察的整体",
+      "category": "概率与统计",
+      "level": "初等数学 / 进阶数学",
+      "symbol": "",
+      "symbolTex": "P(A\\mid B)",
+      "summary": "把概率铺成面积，观察已知一个事件发生后，计算比例的整体怎样改变。",
+      "keywords": "条件概率 贝叶斯 独立事件 面积模型 conditional probability Bayes"
+    },
+    {
+      "id": "venn-sets",
+      "title": "集合与面积：为什么并集要减一次交集",
+      "category": "概率与统计",
+      "level": "初等数学",
+      "symbol": "",
+      "symbolTex": "A\\cup B",
+      "summary": "移动两个圆形区域，比较交集、并集，以及重复计算的那一部分。",
+      "keywords": "集合 交集 并集 容斥 Venn sets union intersection"
+    },
+    {
+      "id": "mean-median",
+      "title": "平均数与中位数：一个大数的影响",
+      "category": "概率与统计",
+      "level": "初等数学",
+      "symbol": "",
+      "symbolTex": "\\bar x\\;\\text{与中位数}",
+      "summary": "只移动七个观测值中的一个，观察平均数、中位数和分散程度怎样回应。",
+      "keywords": "平均数 中位数 离群值 标准差 描述统计 mean median outlier"
     }
   ]
 }

@@ -1,5 +1,5 @@
-import {Graph,control,fmt,result,stat,legend,color,tag,poly,rect,text,line,circle,px} from "./math-studio-core.mjs?v=studio2";
-import {choose,numberTex as n} from "./math-studio-numerics.mjs?v=studio2";
+import {Graph,control,fmt,result,stat,legend,color,tag,poly,rect,text,line,circle,px} from "./math-studio-core.mjs?v=school3";
+import {choose,numberTex as n} from "./math-studio-numerics.mjs?v=school3";
 const finish=(svg,stats,notes,values,keys)=>result(svg,"",stats,notes,values,keys);
 const sector=(cx,cy,r,angle,half,name)=>{
   const points=[[cx,cy]];

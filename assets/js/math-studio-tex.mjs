@@ -1,6 +1,6 @@
 /* Canonical LaTeX for every experiment, separate from screen-reader prose. */
-import {piFraction} from "./math-studio-core.mjs?v=studio2";
-import {plainToTex} from "./math-notation.mjs?v=studio2";
+import {piFraction} from "./math-studio-core.mjs?v=school3";
+import {plainToTex} from "./math-notation.mjs?v=school3";
 const n=value=>String(Number(Number(value).toFixed(8)));
 const plus=value=>Math.abs(value)<1e-10?"":(value<0?" - ":" + ")+n(Math.abs(value));
 const shift=value=>Math.abs(value)<1e-10?"x":"\\left(x"+plus(-value)+"\\right)";

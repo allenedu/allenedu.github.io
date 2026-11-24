@@ -1,5 +1,5 @@
-import {Graph,control,fmt,result,stat,legend,color,text,line,poly,rect,tag,px} from "./math-studio-core.mjs?v=studio2";
-import {sinc,powerIntegral,numberTex as n} from "./math-studio-numerics.mjs?v=studio2";
+import {Graph,control,fmt,result,stat,legend,color,text,line,poly,rect,tag,px} from "./math-studio-core.mjs?v=school3";
+import {sinc,powerIntegral,numberTex as n} from "./math-studio-numerics.mjs?v=school3";
 const finish=(svg,stats,notes,values,keys)=>result(svg,"",stats,notes,values,keys);
 export default [
   {

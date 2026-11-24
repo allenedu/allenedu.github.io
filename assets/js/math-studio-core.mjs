@@ -1,5 +1,5 @@
 /* Pure SVG and numerical helpers shared by the mathematics experiments. */
-import {hasMath,mixedToTex} from "./math-notation.mjs?v=studio2";
+import {hasMath,mixedToTex} from "./math-notation.mjs?v=school3";
 export const W = 760;
 export const H = 480;
 export const color = name => "var(--ms-" + name + ")";

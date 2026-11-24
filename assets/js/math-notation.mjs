@@ -2,13 +2,13 @@
 export const escapeHTML=value=>String(value).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const sup={"⁰":"0","¹":"1","²":"2","³":"3","⁴":"4","⁵":"5","⁶":"6","⁷":"7","⁸":"8","⁹":"9","ⁿ":"n","ˣ":"x","ᵀ":"T","ᵇ":"b","ᶜ":"c","⁻":"-","⁺":"+"};
 const sub={"₀":"0","₁":"1","₂":"2","₃":"3","₄":"4","₅":"5","₆":"6","₇":"7","₈":"8","₉":"9","ₙ":"n","₊":"+","₋":"-","ᵢ":"i","ₓ":"x","ᵦ":"b"};
-const commands={"θ":"\\theta ","μ":"\\mu ","σ":"\\sigma ","%":"\\%","φ":"\\varphi ","ω":"\\omega ","π":"\\pi ","δ":"\\delta ","ε":"\\varepsilon ","Δ":"\\Delta ","Σ":"\\sum ","∑":"\\sum ","∫":"\\int ","∞":"\\infty ","≈":"\\approx ","∈":"\\in ","→":"\\to ","⇒":"\\Longrightarrow ","≠":"\\ne ","≤":"\\le ","≥":"\\ge ","×":"\\times ","·":"\\cdot ","⋯":"\\cdots ","…":"\\ldots ","−":"-","½":"\\tfrac{1}{2}"};
-const word=/(?<![A-Za-z])(?:arctan|sin|cos|tan|log|ln|exp|max|min|arg|Re|Im|zw|ab|bc|ka|kh|np|PF(?=[₁₂])|[A-Za-z](?![A-Za-z]))[₀₁₂₃₄₅₆₇₈₉ₙ₊₋ᵢₓᵦ⁰¹²³⁴⁵⁶⁷⁸⁹ⁿˣᵀᵇᶜ⁻⁺′″']*/.source;
+const commands={"θ":"\\theta ","α":"\\alpha ","β":"\\beta ","γ":"\\gamma ","∩":"\\cap ","∪":"\\cup ","ℝ":"\\mathbb{R}","∠":"\\angle ","⊥":"\\perp ","μ":"\\mu ","σ":"\\sigma ","%":"\\%","φ":"\\varphi ","ω":"\\omega ","π":"\\pi ","δ":"\\delta ","ε":"\\varepsilon ","Δ":"\\Delta ","Σ":"\\sum ","∑":"\\sum ","∫":"\\int ","∞":"\\infty ","≈":"\\approx ","∈":"\\in ","→":"\\to ","⇒":"\\Longrightarrow ","≠":"\\ne ","≤":"\\le ","≥":"\\ge ","×":"\\times ","·":"\\cdot ","⋯":"\\cdots ","…":"\\ldots ","−":"-","½":"\\tfrac{1}{2}"};
+const word=/(?<![A-Za-z])(?:arctan|sin|cos|tan|log|ln|exp|max|min|arg|Re|Im|zw|ab|bc|ka|kh|np|[A-Z]{2,3}(?![A-Za-z])|[A-Za-z](?![A-Za-z]))[₀₁₂₃₄₅₆₇₈₉ₙ₊₋ᵢₓᵦ⁰¹²³⁴⁵⁶⁷⁸⁹ⁿˣᵀᵇᶜ⁻⁺′″']*/.source;
 const numeric=/\d+(?:\.\d+)?(?:e[+-]?\d+)?/.source;
-const symbols=/[θφωπδεμσ%ΔΣ∑∫∞≈∈→⇒≠≤≥×·⋯½√+\-−*/=<>|()[\]{},°⁰¹²³⁴⁵⁶⁷⁸⁹ⁿˣᵀᵇᶜ⁻⁺₀₁₂₃₄₅₆₇₈₉ₙ₊₋ᵢₓᵦ]/.source;
+const symbols=/[θαβγ∩∪ℝ∠⊥φωπδεμσ%ΔΣ∑∫∞≈∈→⇒≠≤≥×·⋯½√+\-−*/=<>|()[\]{},°⁰¹²³⁴⁵⁶⁷⁸⁹ⁿˣᵀᵇᶜ⁻⁺₀₁₂₃₄₅₆₇₈₉ₙ₊₋ᵢₓᵦ]/.source;
 const atom="(?:"+word+"|"+numeric+"|"+symbols+")";
 const run=new RegExp(atom+"(?:[ \\t]*"+atom+")*","gu");
-const mathematical=/[A-Za-zθφωπδεμσ%ΔΣ∑∫∞≈∈→⇒≠≤≥×·½√=<>|⁰¹²³⁴⁵⁶⁷⁸⁹ⁿˣᵀᵇᶜ⁻⁺₀₁₂₃₄₅₆₇₈₉ₙ₊₋ᵢₓᵦ°]/u;
+const mathematical=/[A-Za-zθαβγ∩∪ℝ∠⊥φωπδεμσ%ΔΣ∑∫∞≈∈→⇒≠≤≥×·½√=<>|⁰¹²³⁴⁵⁶⁷⁸⁹ⁿˣᵀᵇᶜ⁻⁺₀₁₂₃₄₅₆₇₈₉ₙ₊₋ᵢₓᵦ°]/u;
 function topIndices(source,characters){
   let depth=0;const found=[];
   for(let i=0;i<source.length;i++){
@@ -54,7 +54,7 @@ export function plainToTex(input){
     .replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹ⁿˣᵀᵇᶜ⁻⁺]+/g,s=>"^{" + [...s].map(c=>sup[c]).join("")+"}")
     .replace(/′+/g,s=>"^{"+Array.from(s,()=>"\\prime").join("")+"}")
     .replace(/″/g,"^{\\prime\\prime}")
-    .replace(/[θφωπδεμσ%ΔΣ∑∫∞≈∈→⇒≠≤≥×·⋯…−½]/g,c=>commands[c])
+    .replace(/[θαβγ∩∪ℝ∠⊥φωπδεμσ%ΔΣ∑∫∞≈∈→⇒≠≤≥×·⋯…−½]/g,c=>commands[c])
     .replace(/°/g,"^{\\circ}")
     .replace(/(?<![A-Za-z\\])(arctan|sin|cos|tan|log|ln|exp|max|min|arg)(?![A-Za-z])/g,"\\$1 ")
     .replace(/(?<![A-Za-z\\])(Re|Im)(?![A-Za-z])/g,"\\operatorname{$1}")

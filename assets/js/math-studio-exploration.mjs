@@ -1,5 +1,5 @@
-import {Graph,control,fmt,result,stat,legend,color,radians,text,line,rect,circle} from "./math-studio-core.mjs?v=studio2";
-import {choose,normalCentralProbability,sampleSquare,numberTex as n} from "./math-studio-numerics.mjs?v=studio2";
+import {Graph,control,fmt,result,stat,legend,color,radians,text,line,rect,circle} from "./math-studio-core.mjs?v=school3";
+import {choose,normalCentralProbability,sampleSquare,numberTex as n} from "./math-studio-numerics.mjs?v=school3";
 const finish=(svg,stats,notes,values,keys)=>result(svg,"",stats,notes,values,keys);
 const gcd=(a,b)=>b?gcd(b,a%b):a;
 const pointCache=new Map();

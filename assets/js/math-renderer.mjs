@@ -1,4 +1,4 @@
-import {mixedHTML,mixedToTex,plainToTex} from "./math-notation.mjs?v=studio2";
+import {mixedHTML,mixedToTex,plainToTex} from "./math-notation.mjs?v=school3";
 
 let available=false;
 const cache=new Map();

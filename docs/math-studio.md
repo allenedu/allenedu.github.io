@@ -1,7 +1,7 @@
 # Mathematics studio
 
 The studio is published at `/year-archive/`, with `/math-lab/` as an alias.
-It contains 50 adjustable experiments across eight topic groups, from fractions
+It contains 62 adjustable experiments across eight topic groups, from fractions
 and geometry to calculus, differential equations, and probability.
 Each experiment has a stable fragment, such as `#unit-circle` or
 `#riemann?n=20&theta=0.5`. Links include nondefault parameter values.
@@ -49,8 +49,21 @@ supports numeric entry, Enter, blur, and an explicit apply action. Focus mode
 removes surrounding navigation and the catalog, while image enlargement keeps
 its horizontal scroll within the plot. Topic, learning-stage, and text filters
 can be combined and cleared together. Existing fragment links remain valid.
+Preset buttons indicate the current matching scenario, including after manual
+parameter changes.
 
 Reference tests cover all control-bound combinations, known values, convergence
 orders, probability normalization, deterministic Monte Carlo sample prefixes,
 LaTeX notation, and production catalog consistency. Diagrams of sectors and
 rotating disks are explanatory projections; approximations are labelled.
+
+The school mathematics examples include linear systems, quadratic-root
+classification, distance inequalities, triangle angle sums and centroids,
+inscribed angles, circle tangents, rotations, arithmetic sequences, conditional
+probability, Venn regions, and the effect of an outlier on summary statistics.
+Degenerate equations, points inside/on a circle, zero-radius intervals, and
+conditioning on a zero-probability event are handled explicitly. Geometry uses
+equal coordinate scales; the conditional-probability diagram is a unit square.
+The unit circle also plots cosine, sinusoid phase has a visible reference,
+vector projections and ellipse major-axis lengths are displayed, and Euler
+plots include a comparison at half the original step size.

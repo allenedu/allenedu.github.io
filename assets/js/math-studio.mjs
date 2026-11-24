@@ -1,7 +1,7 @@
-import {experiments,categories,getExperiment,renderExperiment,animationControl} from "./math-studio-models.mjs?v=studio2";
-import {escape,fmt,stateFor} from "./math-studio-core.mjs?v=studio2";
-import {mixedHTML} from "./math-notation.mjs?v=studio2";
-import {setMath,setMixedMath,renderMath} from "./math-renderer.mjs?v=studio2";
+import {experiments,categories,getExperiment,renderExperiment,animationControl} from "./math-studio-models.mjs?v=school3";
+import {escape,fmt,stateFor} from "./math-studio-core.mjs?v=school3";
+import {mixedHTML} from "./math-notation.mjs?v=school3";
+import {setMath,setMixedMath,renderMath} from "./math-renderer.mjs?v=school3";
 
 const studio=document.querySelector("[data-math-studio]");
 if(studio){
@@ -81,6 +81,10 @@ if(studio){
       output.innerHTML=mixedHTML(fmt(state[c.key])+(c.unit||""),{numbers:true});
       const numberInput=numeric.querySelector('[data-ms-number="'+c.key+'"]');
       numberInput.value=String(state[c.key]);
+    }
+    for(const button of presets.querySelectorAll("[data-ms-preset]")){
+      const values=stateFor(current,current.presets[Number(button.dataset.msPreset)].values);
+      button.setAttribute("aria-pressed",String(current.controls.every(c=>Math.abs(values[c.key]-state[c.key])<1e-9)));
     }
     renderMath(studio);
     shareField.hidden=true;status.textContent="";
