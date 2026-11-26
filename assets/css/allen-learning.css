@@ -1,0 +1,112 @@
+/* Focused reading views for course outlines, vocabulary and the learning index. */
+.allen-visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.allen-reader-page { padding-top: 30px; }
+.allen-breadcrumbs { display: flex; flex-wrap: wrap; align-items: baseline; gap: 9px; font-size: .875rem; color: var(--allen-muted); margin-bottom: 35px; }
+.allen-breadcrumbs a { color: var(--allen-muted); }
+.allen-breadcrumbs a:hover { color: var(--allen-primary); }
+.allen-breadcrumbs [aria-current] { color: var(--allen-ink); }
+.allen-reader-heading { padding-bottom: 32px; margin-bottom: 35px; border-bottom: 1px solid var(--allen-line); }
+.allen-reader-heading h1 { margin: 9px 0 13px; font-size: clamp(2rem, 3.4vw, 2.8rem); letter-spacing: -.04em; overflow-wrap: anywhere; }
+.allen-reader-heading > p:not(.allen-eyebrow) { color: var(--allen-muted); font-size: 1.0625rem; max-width: 760px; }
+.allen-reader-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; margin-top: 22px; font-size: .875rem; color: var(--allen-muted); }
+.allen-reader-meta > span:first-child { color: var(--allen-primary); font-weight: 600; }
+.allen-print { border: 1px solid var(--allen-line); border-radius: 7px; background: var(--allen-surface); color: var(--allen-muted); padding: 5px 12px; cursor: pointer; }
+.allen-print:hover { border-color: var(--allen-primary); color: var(--allen-primary); }
+.allen-reader-grid { display: grid; grid-template-columns: 245px minmax(0, 1fr); gap: 52px; align-items: start; }
+.allen-reader-sidebar { position: sticky; top: 115px; max-height: calc(100vh - 140px); overflow-y: auto; scrollbar-width: thin; }
+.allen-reader-nav { border: 1px solid var(--allen-line); background: var(--allen-soft); border-radius: 12px; padding: 17px 12px; }
+.allen-reader-nav summary { padding: 0 8px; cursor: pointer; font-weight: 650; font-size: .9375rem; }
+.allen-reader-nav nav { margin-top: 12px; display: grid; gap: 3px; }
+.allen-reader-nav a { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; padding: 8px 11px; border-radius: 7px; font-size: .875rem; color: var(--allen-muted); line-height: 1.6; }
+.allen-reader-nav a > span { color: var(--allen-muted); font-size: .8125rem; }
+.allen-reader-nav a:hover, .allen-reader-nav a[aria-current] { color: var(--allen-primary); background: var(--allen-surface); }
+.allen-reader-nav a[aria-current] { font-weight: 650; box-shadow: inset 3px 0 var(--allen-primary); }
+.allen-reader-prompt { margin: 25px 9px 4px; }
+.allen-reader-prompt p { color: var(--allen-muted); font-size: .875rem; margin: 8px 0 12px; }
+.allen-reader-prompt a { font-size: .875rem; }
+.allen-reader-content { min-width: 0; }
+.allen-glossary-search { display: grid; grid-template-columns: 1fr auto; gap: 10px 18px; align-items: center; padding: 22px; border: 1px solid var(--allen-line); border-radius: 12px; background: var(--allen-surface); margin-bottom: 25px; }
+.allen-glossary-search label { grid-column: 1 / -1; font-weight: 650; font-size: .9375rem; }
+.allen-term-input { display: flex; align-items: center; position: relative; min-width: 0; }
+.allen-term-input input { width: 100%; min-width: 0; padding: 11px 58px 11px 13px; border: 1px solid var(--allen-line); border-radius: 7px; color: var(--allen-ink); background: var(--allen-soft); line-height: 1.5; }
+.allen-term-input button { position: absolute; right: 8px; padding: 4px 6px; background: var(--allen-surface); border: 0; border-radius: 4px; color: var(--allen-primary); font-size: .875rem; cursor: pointer; }
+.allen-glossary-search [role="status"] { font-size: .875rem; color: var(--allen-muted); }
+.allen-glossary-scroll { border: 1px solid var(--allen-line); border-radius: 12px; overflow-x: auto; }
+.allen-glossary { width: 100%; border-collapse: collapse; text-align: left; font-size: 1rem; line-height: 1.7; }
+.allen-glossary th, .allen-glossary td { padding: 16px 22px; vertical-align: top; overflow-wrap: anywhere; }
+.allen-glossary thead th { color: var(--allen-muted); background: var(--allen-soft); font-size: .875rem; font-weight: 600; }
+.allen-glossary tbody tr + tr { border-top: 1px solid var(--allen-line); }
+.allen-glossary tbody tr:hover { background: var(--allen-soft); }
+.allen-glossary tbody th { width: 48%; font-weight: 550; letter-spacing: .005em; }
+.allen-word-type { display: inline-block; color: var(--allen-muted); font-size: .875rem; margin-right: 6px; }
+.allen-prose { font-size: 1rem; line-height: 1.9; overflow-wrap: anywhere; }
+.allen-prose p { margin: 0 0 18px; }
+.allen-prose h2, .allen-prose h3 { margin: 32px 0 16px; letter-spacing: -.02em; }
+.allen-prose h2 { font-size: 1.45rem; }
+.allen-prose h3 { font-size: 1.125rem; }
+.allen-prose > h3:first-child { margin-top: 0; }
+.allen-prose ul { margin: 0 0 22px; padding-left: 22px; }
+.allen-prose li { padding: 3px 0; }
+.allen-prose li p { margin: 0; }
+.allen-course-body .allen-unit-heading { margin-top: 42px; padding: 24px 0 0; border-top: 1px solid var(--allen-line); font-size: 1.4rem; scroll-margin-top: 115px; }
+.allen-unit-heading > span { display: block; margin-top: 5px; color: var(--allen-muted); font-size: .9375rem; font-weight: 450; line-height: 1.6; }
+.allen-reader-end { border-top: 1px solid var(--allen-line); padding-top: 26px; margin-top: 38px; }
+.allen-reader-end > p { margin-bottom: 14px; font-size: .9375rem; color: var(--allen-muted); }
+.allen-back-top { display: inline-block; margin-top: 18px; font-size: .875rem; }
+.allen-topic-english { display: block; color: var(--allen-muted); font-size: .875rem; margin-top: 6px; font-weight: 450; letter-spacing: 0; }
+.allen-topic-count { margin-bottom: 14px; color: var(--allen-primary); font-size: .875rem; }
+.allen-topic-card .allen-card-action { margin-top: auto; }
+.allen-topic-card h2 { font-size: 1.3rem; }
+.allen-directory-grid { display: grid; grid-template-columns: 1fr 1.35fr 1fr; gap: 25px; align-items: start; }
+.allen-directory { padding: 28px; border: 1px solid var(--allen-line); border-radius: 13px; background: var(--allen-surface); }
+.allen-directory h2 { font-size: 1.3rem; margin-bottom: 16px; }
+.allen-directory h2:not(:first-child) { margin-top: 28px; }
+.allen-directory a { display: flex; justify-content: space-between; gap: 12px; padding: 13px 0; border-bottom: 1px solid var(--allen-line); font-size: .9375rem; }
+.allen-directory a:last-child { border-bottom: 0; }
+.allen-directory a > span { white-space: nowrap; font-size: .875rem; color: var(--allen-muted); }
+.allen-directory p { font-size: .9375rem; color: var(--allen-muted); margin-bottom: 12px; }
+.allen-usage { max-width: 760px; }
+.allen-not-found { max-width: 760px; text-align: center; padding-block: 100px; }
+.allen-not-found h1 { font-size: clamp(1.8rem, 3.2vw, 2.6rem); margin: 16px 0; }
+.allen-not-found > p:not(.allen-eyebrow) { color: var(--allen-muted); margin-bottom: 28px; }
+.allen-not-found .allen-button-row { justify-content: center; }
+@media (max-width: 1000px) {
+  .allen-reader-grid { gap: 28px; grid-template-columns: 215px minmax(0, 1fr); }
+  .allen-directory-grid { grid-template-columns: 1fr 1fr; }
+  .allen-directory:last-child { grid-column: 1 / -1; }
+  .allen-glossary-search { grid-template-columns: 1fr; }
+}
+@media (max-width: 850px) {
+  .allen-reader-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .allen-reader-sidebar { position: static; max-height: none; overflow: visible; }
+  .allen-reader-nav nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .allen-reader-prompt { display: none; }
+  .allen-reader-heading { margin-bottom: 24px; }
+}
+@media (max-width: 600px) {
+  .allen-breadcrumbs { font-size: .8125rem; margin-bottom: 25px; gap: 7px; }
+  .allen-reader-heading { padding-bottom: 25px; }
+  .allen-reader-heading > p:not(.allen-eyebrow) { font-size: 1rem; }
+  .allen-reader-meta { gap: 10px 16px; }
+  .allen-glossary-search { padding: 17px; margin-bottom: 20px; }
+  .allen-glossary th, .allen-glossary td { padding: 14px 12px; }
+  .allen-glossary tbody th { width: 46%; }
+  .allen-word-type { display: block; }
+  .allen-reader-nav nav { grid-template-columns: 1fr; }
+  .allen-directory-grid { grid-template-columns: 1fr; }
+  .allen-directory { padding: 24px; }
+  .allen-directory:last-child { grid-column: auto; }
+}
+@media print {
+  :root, html[data-theme="dark"] { --allen-page: #fff; --allen-surface: #fff; --allen-ink: #111; --allen-muted: #444; --allen-soft: #f5f5f5; --allen-line: #ccc; --allen-primary: #174c44; color-scheme: light; }
+  .allen-header, .allen-footer, .allen-breadcrumbs, .allen-reader-sidebar, .allen-reader-end, .allen-print, .allen-dialog, .allen-skip, .allen-glossary-search, [data-glossary-empty] { display: none !important; }
+  .allen-container { width: 100%; }
+  .allen-reader-page { padding: 0; }
+  .allen-reader-grid { display: block; }
+  .allen-reader-heading { padding-bottom: 18px; margin-bottom: 22px; }
+  .allen-glossary-scroll { overflow: visible; border: 0; }
+  .allen-glossary thead { display: table-header-group; }
+  .allen-glossary tr { break-inside: avoid; }
+  .allen-glossary tbody tr[hidden] { display: table-row !important; }
+  .allen-prose h2, .allen-prose h3 { break-after: avoid; }
+}

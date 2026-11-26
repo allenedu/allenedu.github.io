@@ -6,8 +6,9 @@
       <span class="allen-brand-text"><strong>Allen<span>智学</span></strong><small>MAKE LEARNING CLICK</small></span>
     </a>
     <nav class="allen-nav" id="allen-navigation" aria-label="主导航">
+      {% assign current_section = page.nav_parent | default: page.url %}
       {% for link in site.data.navigation.main %}
-      <a href="{{ link.url | relative_url }}" title="{{ link.en | escape }}"{% if page.url == link.url %} aria-current="page"{% endif %}>{{ link.title }}</a>
+      <a href="{{ link.url | relative_url }}" title="{{ link.en | escape }}"{% if current_section == link.url %} aria-current="page"{% endif %}>{{ link.title }}</a>
       {% endfor %}
     </nav>
     <div class="allen-header-actions">

@@ -1,6 +1,8 @@
 <script src="{{ '/assets/js/allen-theme-init.js' | relative_url }}"></script>
-<link rel="stylesheet" href="{{ '/assets/css/allen.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/allen.css?v=clean1' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/allen-math.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/allen-learning.css?v=clean1' | relative_url }}">
+{% if page.learning_tools %}<script type="module" src="{{ '/assets/js/learning-tools.mjs?v=clean1' | relative_url }}"></script>{% endif %}
 <script src="{{ '/assets/js/allen-math-config.js' | relative_url }}"></script>
 <script data-mathjax-local src="{{ '/assets/vendor/mathjax-3.2.2/tex-svg.js' | relative_url }}" defer></script>
 <script type="module" src="{{ '/assets/js/allen.js?v=school3' | relative_url }}"></script>

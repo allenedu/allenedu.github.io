@@ -1,0 +1,32 @@
+---
+layout: learning
+---
+<main class="allen-container allen-inner-main allen-reader-page" id="main">
+  <nav class="allen-breadcrumbs" aria-label="当前位置"><a href="{{ '/' | relative_url }}">首页</a><span aria-hidden="true">/</span><a href="{{ page.parent_url | relative_url }}">{{ page.parent_title }}</a><span aria-hidden="true">/</span><span aria-current="page">{{ page.title | escape }}</span></nav>
+  <header class="allen-reader-heading">
+    <p class="allen-eyebrow" lang="en">{{ page.subtitle | escape }}</p>
+    <h1>{{ page.title | escape }}</h1><p>{{ page.description | escape }}</p>
+    <div class="allen-reader-meta">{% if page.vocabulary %}<span>{{ page.term_count }} 个中英对照词条</span>{% endif %}{% if page.course %}<span>{{ page.units.size }} 个学习模块</span>{% endif %}<span>Allen智学 · 开放学习资源</span><button type="button" class="allen-print" data-print-page hidden>打印本页</button></div>
+  </header>
+  <div class="allen-reader-grid">
+    <aside class="allen-reader-sidebar">
+      <details class="allen-reader-nav" data-reader-navigation open>
+        <summary>{% if page.vocabulary %}切换词汇主题{% endif %}{% if page.course %}本页章节目录{% endif %}</summary>
+        <nav aria-label="{{ page.parent_title }}目录">
+          {% if page.vocabulary %}{% assign topics = site.talks | sort: 'order' %}{% for topic in topics %}<a href="{{ topic.url | relative_url }}"{% if page.url == topic.url %} aria-current="page"{% endif %}>{{ topic.title | escape }}<span>{{ topic.term_count }}</span></a>{% endfor %}{% endif %}
+          {% if page.course %}<a href="#course-introduction">课程简介与学习目标</a>{% for unit in page.units %}<a href="#{{ unit.id }}" data-unit-link>{{ unit.title | escape }}</a>{% endfor %}{% endif %}
+        </nav>
+      </details>
+      <div class="allen-reader-prompt"><span class="allen-card-eyebrow">学以致用</span><p>{% if page.vocabulary %}把一个新词放进一道题目里，比单独背下来更容易理解。{% endif %}{% if page.course %}先建立知识地图，再用图像与练习把概念连接起来。{% endif %}</p><a class="allen-text-link" href="{{ page.related_url | relative_url }}">{{ page.related_title | escape }}</a></div>
+    </aside>
+    <article class="allen-reader-content">
+      {% if page.vocabulary %}
+      <div class="allen-glossary-search" data-glossary-search hidden><label for="allen-term-search">查找本主题词汇</label><div class="allen-term-input"><input type="search" id="allen-term-search" placeholder="输入英文或中文关键词" autocomplete="off" aria-controls="allen-glossary-content"><button type="button" data-clear-glossary hidden>清空</button></div><span role="status" aria-live="polite" data-glossary-count></span></div>
+      <div id="allen-glossary-content">{{ content }}</div>
+      <p class="allen-empty-state" data-glossary-empty hidden>本主题中没有匹配的词条。可以清空关键词，或切换其他主题。</p>
+      {% endif %}
+      {% if page.course %}<div class="allen-prose allen-course-body" id="course-introduction">{{ content }}</div>{% endif %}
+      <footer class="allen-reader-end"><p>从理解出发，继续下一步。</p><div class="allen-button-row"><a class="allen-button allen-button-small" href="{{ page.parent_url | relative_url }}">返回{{ page.parent_title }}</a><a class="allen-text-link" href="{{ page.related_url | relative_url }}">{{ page.related_title | escape }}</a></div><a class="allen-back-top" href="#main">回到本页顶部</a></footer>
+    </article>
+  </div>
+</main>

@@ -1,19 +1,21 @@
 ---
 layout: learning
-title: "数学词汇"
+title: 数学词汇
 permalink: /talks/
 author_profile: false
+redirect_from:
+- /vocabulary/
+learning_tools: true
 ---
 <main class="allen-container allen-inner-main" id="main">
-  <div class="allen-page-heading"><p class="allen-eyebrow">UNDERSTAND THE WORDS, UNLOCK THE MATH</p><h1>读懂题目，从关键词开始。</h1><p>按主题积累数学英语，让语言成为理解的桥梁。</p></div>
+  <div class="allen-page-heading"><p class="allen-eyebrow">UNDERSTAND THE WORDS, UNLOCK THE MATH</p><h1>读懂题目，从关键词开始。</h1><p>13 个主题，334 个中英对照词条。按主题查阅，在例题中理解，让语言成为理解数学的桥梁。</p></div>
   <div class="allen-search-bar"><label for="allen-vocabulary-search">查找词汇主题</label><input id="allen-vocabulary-search" type="search" placeholder="试试：calculus、geometry、代数…" data-resource-search autocomplete="off"><span data-search-count role="status" aria-live="polite"></span></div>
   <div class="allen-vocabulary-grid">
-    {% assign vocabulary = site.talks | sort: 'url' %}
+    {% assign vocabulary = site.talks | sort: 'order' %}
     {% for post in vocabulary %}
-    <a class="allen-vocabulary-card" href="{{ post.url | relative_url }}" data-searchable><span class="allen-card-eyebrow">MATHEMATICS ENGLISH</span><h2>{{ post.title | escape }}</h2><p>{{ post.content | strip_html | truncate: 110 }}</p><span class="allen-card-action">打开本主题词汇</span></a>
+    <a class="allen-vocabulary-card allen-topic-card" href="{{ post.url | relative_url }}" data-searchable><span class="allen-topic-count">{{ post.term_count }} 个词条</span><h2>{{ post.title | escape }}<span class="allen-topic-english" lang="en">{{ post.subtitle | escape }}</span></h2><p>{{ post.description | escape }}</p><span class="allen-card-action">打开本主题词汇</span></a>
     {% endfor %}
   </div>
   <p class="allen-empty-state" data-search-empty hidden>暂时没有找到匹配的主题。试试中文关键词，或换一个更简短的英文单词。</p>
   <aside class="allen-callout"><h2>比背下来更重要的，是用起来。</h2><p>每次选择一个主题，将英文术语与一道例题联系起来；看到 prove、hence、evaluate 等指令词时，先想清楚题目期待什么样的回答。</p></aside>
 </main>
-
